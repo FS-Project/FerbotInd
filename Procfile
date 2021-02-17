@@ -1,4 +1,4 @@
-# Ferbot, this is a bot for management your group
+# Ferbot,  this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
 # Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
 # 
