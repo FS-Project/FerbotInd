@@ -67,25 +67,25 @@ from ferbot.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hallo! Introduce my name *{dispatcher.bot.first_name}*.
-I am a bot that you can use with several modules.
-Use /help to see my features.
+Hallo! Perkenalkan Nama Saya *{dispatcher.bot.first_name}*.
+Saya adalah bot yang dapat Anda gunakan dengan beberapa modul.
+Gunakan /help untuk melihat fitur-fitur saya.
 
-I can do what you tell me, such as :
+Saya bisa melakukan apa yang Anda katakan kepada saya, Seperti :
 
-▶ Mute Someone.         
-▶ Ban/Gban Someone.
-▶ Save Notes.   
-▶ Predetermined Filters.
+▶ Mute Seseorang.         
+▶ Ban/Gban Seseorang.
+▶ Menyimpan Notes.   
+▶ Dan banyak hal lainnya.
 
-Want To Use Me In Your Group? Just Click the Button Below!
+Ingin menmbahkan saya digroup Anda? Klik saja tombol dibawah!
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="👥 Add To Group",
-            url="t.me/FerBotEn_bot?startgroup=true"),
+            text="👥 Tambah ke group",
+            url="t.me/FerbotInd_bot?startgroup=true"),
         InlineKeyboardButton(
             text="🔎 Helps",
             url=f"t.me/{dispatcher.bot.username}?start=help"),
@@ -93,7 +93,7 @@ buttons = [
 
 
 buttons += [[InlineKeyboardButton(text="🔗 Open Sources",
-                                  url=f"https://github.com/FS-Project/FerBotEn"),
+                                  url=f"https://github.com/FS-Project/FerbotInd),
              InlineKeyboardButton(text="☑️ Report Bugs",
                                   url="https://t.me/Fernans1"),
              ]]
