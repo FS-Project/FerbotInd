@@ -375,7 +375,7 @@ def help_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⟹ KEMBALI", callback_data="help_back"
+                                text="⟸ KEMBALI", callback_data="help_back"
                             )
                         ]
                     ]
