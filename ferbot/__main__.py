@@ -100,11 +100,11 @@ buttons += [[InlineKeyboardButton(text="🔗 Open Sources",
 
 
 HELP_STRINGS = f"""
-Hallo! My Name Is *{dispatcher.bot.first_name}*.
-I am a bot that you can make group management to make it easier for you.
+Hallo! Nama Saya *{dispatcher.bot.first_name}*.
+Saya adalah bot yang dapat Anda jadikan manajemen grup untuk memudahkan Anda.
 
 *Main* commands available:
- × /start: Starts me, can be used to check i'm alive or no...
+ × /start: Memulai Saya, dapat juga digunakan sebagai ...
  × /help: PM's you this message.
  × /help <module name>: PM's you info about that module.
  × /settings: in PM: will send you your settings for all supported modules.
@@ -269,7 +269,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_photo(
-                "https://i.ibb.co/nBwSNvN/Logo-header-ferboten.jpg",
+                "https://i.ibb.co/1mkVFnW/logo-header-ferbotind-jpg.jpg",
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
