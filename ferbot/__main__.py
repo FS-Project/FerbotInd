@@ -360,7 +360,7 @@ def help_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⟸ Back", callback_data="help_back"
+                                text="⟸ KEMBALI", callback_data="help_back"
                             )
                         ]
                     ]
@@ -375,7 +375,7 @@ def help_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⟹ Back", callback_data="help_back"
+                                text="⟹ KEMBALI", callback_data="help_back"
                             )
                         ]
                     ]
@@ -441,14 +441,14 @@ def staff_help(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Modules help", callback_data="help_back"
+                            text="Bantuan Modul", callback_data="help_back"
                         )
                     ]
                 ]
             ),
         )
     else:
-        update.effective_message.reply_text("You can't access this command")
+        update.effective_message.reply_text("Kamu tidak dapat menggunakan perintah ini!")
 
 
 @typing_action
@@ -461,12 +461,12 @@ def get_help(update, context):
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Hubungi saya di PM untuk mendapatkan daftar perintah.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
+                            text="🔎 Bantuan",
                             url="t.me/{}?start=help".format(
                                 context.bot.username
                             ),
@@ -480,7 +480,7 @@ def get_help(update, context):
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            "Here is the available help for the *{}* module:\n".format(
+            "Berikut adalah bantuan yang tersedia untuk *{}* module:\n".format(
                 HELPABLE[module].__mod_name__
             )
             + HELPABLE[module].__help__
@@ -492,7 +492,7 @@ def get_help(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Back", callback_data="help_back"
+                            text="Kembali", callback_data="help_back"
                         )
                     ]
                 ]
@@ -529,14 +529,14 @@ def send_settings(chat_id, user_id, user=False):
             )
             dispatcher.bot.send_message(
                 user_id,
-                "These are your current settings:" + "\n\n" + settings,
+                "Ini adalah pengaturan Anda saat ini:" + "\n\n" + settings,
                 parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any user specific settings available :'(",
+                "Sepertinya tidak ada pengaturan khusus pengguna yang tersedia:'(",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -545,7 +545,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(
                 user_id,
-                text="Which module would you like to check {}'s settings for?".format(
+                text="Modul mana yang ingin Anda periksa {} pengaturan untuk?".format(
                     chat_name
                 ),
                 reply_markup=InlineKeyboardMarkup(
@@ -555,8 +555,8 @@ def send_settings(chat_id, user_id, user=False):
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Sepertinya tidak ada pengaturan obrolan yang tersedia :'(\nKirim ini "
+                "ke dalam obrolan grup tempat Anda menjadi admin untuk menemukan pengaturan saat ini!",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -573,7 +573,7 @@ def settings_button(update, context):
             chat_id = mod_match.group(1)
             module = mod_match.group(2)
             chat = context.bot.get_chat(chat_id)
-            text = "*{}* has the following settings for the *{}* module:\n\n".format(
+            text = "*{}* memiliki pengaturan berikut untuk *{}* modul:\n\n".format(
                 escape_markdown(chat.title), CHAT_SETTINGS[module].__mod_name__
             ) + CHAT_SETTINGS[
                 module
@@ -587,7 +587,7 @@ def settings_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text="Kembali",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -600,8 +600,8 @@ def settings_button(update, context):
             curr_page = int(prev_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                "yang Anda minati.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -614,8 +614,8 @@ def settings_button(update, context):
             next_page = int(next_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                "yang Anda minati.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         next_page + 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -627,8 +627,8 @@ def settings_button(update, context):
             chat_id = back_match.group(1)
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(escape_markdown(chat.title)),
+                text="Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                "yang Anda minati.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
@@ -639,16 +639,16 @@ def settings_button(update, context):
         query.message.delete()
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
-        if excp.message == "Message is not modified":
+        if excp.message == "Pesan tidak diubah":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Message can't be deleted":
+        elif excp.message == "Pesan tidak dapat dihapus":
             pass
         else:
             query.message.edit_text(excp.message)
             LOGGER.exception(
-                "Exception in settings buttons. %s", str(query.data)
+                "Pengecualian di tombol pengaturan. %s", str(query.data)
             )
 
 
@@ -662,14 +662,14 @@ def get_settings(update, context):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "Klik di sini untuk mendapatkan pengaturan obrolan ini, serta milik Anda."
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="Settings",
+                                text="Pengaturan",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
@@ -679,7 +679,7 @@ def get_settings(update, context):
                 ),
             )
         else:
-            text = "Click here to check your settings."
+            text = "Klik disini untuk melihat pengaturan Anda."
 
     else:
         send_settings(chat.id, user.id, True)
@@ -711,7 +711,7 @@ def is_chat_allowed(update, context):
             try:
                 context.bot.send_message(
                     chat_id=chat_id,
-                    text="This group is Blacklisted! Leaving...",
+                    text="Grup ini Masuk Daftar Hitam! Meninggalkan...",
                 )
                 context.bot.leave_chat(chat_id)
             except Unauthorized:
@@ -724,7 +724,7 @@ def is_chat_allowed(update, context):
             try:
                 context.bot.send_message(
                     chat_id=chat_id,
-                    text="This group is Blacklisted! Leaving...",
+                    text="Grup ini Masuk Daftar Hitam! Meninggalkan...",
                 )
                 context.bot.leave_chat(chat_id)
             except Unauthorized:
@@ -737,7 +737,7 @@ def is_chat_allowed(update, context):
             try:
                 context.bot.send_message(
                     chat_id=chat_id,
-                    text="This group is Blacklisted! Leaving..."
+                    text="Grup ini Masuk Daftar Hitam! Meninggalkan..."
                 )
                 context.bot.leave_chat(chat_id)
             except Unauthorized:
@@ -763,7 +763,7 @@ def main():
         run_async=True,
     )
 
-    settings_handler = CommandHandler("settings", get_settings, run_async=True)
+    settings_handler = CommandHandler("pengaturan", get_settings, run_async=True)
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_", run_async=True
     )
@@ -807,5 +807,5 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
+    LOGGER.info("Modul berhasil dimuat: " + str(ALL_MODULES))
     main()
