@@ -763,7 +763,7 @@ def main():
         run_async=True,
     )
 
-    settings_handler = CommandHandler("pengaturan", get_settings, run_async=True)
+    settings_handler = CommandHandler("setting", get_settings, run_async=True)
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_", run_async=True
     )
@@ -800,7 +800,7 @@ def main():
         updater.start_polling(timeout=15, read_latency=5, clean=True)
         if MESSAGE_DUMP:
             updater.bot.send_message(
-                chat_id=MESSAGE_DUMP, text="System Started..."
+                chat_id=MESSAGE_DUMP, text="System dimulai..."
             )
 
     updater.idle()
