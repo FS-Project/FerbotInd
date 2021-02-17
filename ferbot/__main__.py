@@ -68,7 +68,11 @@ from ferbot.modules.helper_funcs.alternate import typing_action
 
 PM_START_TEXT = f"""
 Hallo! Perkenalkan Nama Saya *{dispatcher.bot.first_name}*.
+
+📌
 SAYA SEDANG DALAM PROSES PEMBUATAN, JADI BELUM SEMPURNA BAHASA INDONESIA.
+📌
+
 Saya adalah bot yang dapat Anda gunakan dengan beberapa modul.
 Gunakan /help untuk melihat fitur-fitur saya.
 
