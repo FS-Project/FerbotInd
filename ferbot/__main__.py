@@ -78,7 +78,7 @@ Saya bisa melakukan apa yang Anda katakan kepada saya, Seperti :
 ▶ Menyimpan Notes.   
 ▶ Dan banyak hal lainnya.
 
-Ingin menmbahkan saya digroup Anda? Klik saja tombol dibawah!
+Ingin menambahkan saya digroup Anda? Klik saja tombol dibawah!
 """
 
 buttons = [
@@ -87,14 +87,14 @@ buttons = [
             text="👥 Tambah ke group",
             url="t.me/FerbotInd_bot?startgroup=true"),
         InlineKeyboardButton(
-            text="🔎 Helps",
+            text="🔎 Bantuan",
             url=f"t.me/{dispatcher.bot.username}?start=help"),
     ]]
 
 
-buttons += [[InlineKeyboardButton(text="🔗 Open Sources",
+buttons += [[InlineKeyboardButton(text="🔗 Open Source",
                                   url=f"https://github.com/FS-Project/FerbotInd"),
-             InlineKeyboardButton(text="☑️ Report Bugs",
+             InlineKeyboardButton(text="☑️ Laporkan Bug",
                                   url="https://t.me/Fernans1"),
              ]]
 
@@ -104,12 +104,12 @@ Hallo! Nama Saya *{dispatcher.bot.first_name}*.
 Saya adalah bot yang dapat Anda jadikan manajemen grup untuk memudahkan Anda.
 
 *Main* commands available:
- × /start: Memulai Saya, dapat juga digunakan sebagai ...
- × /help: PM's you this message.
- × /help <module name>: PM's you info about that module.
- × /settings: in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
- \nClick on the buttons below to get documentation about specific modules!"""
+ × /start: Memulai Saya, atau bisa mengecek apakah saya hidup...
+ × /help: Mengirim anda pesan ini di PM.
+ × /help <nama modul>: Mengirim anda pesan tentang modul yang anda sebutkan.
+ × /settings: Jika di PM: akan mengirimkan setelan Anda untuk semua modul yang didukung.
+   - Jika di Group: akan mengarahkan Anda ke pm, dan menunjukan beberapa pengaturan yang dipakai.
+ \nKlik tombol di bawah untuk mendapatkan tentang modul yang anda pilih!"""
 
 
 STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
@@ -138,9 +138,9 @@ Here is all the staff's commands. Users above has the command access for all com
 × /speedtest: Start a speedtest from my server.
 
 *SUPPORT USERS*
-× /gban <userid>: global ban a user.
-× /ungban <userid>: remove currently gbanned user.
-× /gbanlist: Get the list of currently gbanned users."""
+× /gban <userid>: Melarang pengguna secara global.
+× /ungban <userid>: Membuka larangan pengguna yang telah dilarang.
+× /gbanlist: Dapatkan list pengguna yang dilarang secara global."""
 
 
 IMPORTED = {}
@@ -167,7 +167,7 @@ for module_name in ALL_MODULES:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
         raise Exception(
-            "Can't have two modules with the same name! Please change one"
+            "Tidak boleh memiliki dua modul dengan nama yang sama! Harap ubah satu"
         )
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
@@ -219,7 +219,7 @@ def test(update, context):
     update.effective_message.reply_text(
         "Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN
     )
-    update.effective_message.reply_text("This person edited a message")
+    update.effective_message.reply_text("Orang ini mengedit pesan")
     print(update.effective_message)
 
 
@@ -273,19 +273,18 @@ def start(update, context):
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
             )
     else:
         update.effective_message.reply_text(
-            "Hello everyone, I'm still alive here:)"
+            "Hallo semua, Saya selalu aktif disini:)"
         )
 
 
 def error_handler(update, context):
-    """Log the error and send a telegram message to notify the developer."""
+    """Catat kesalahan dan kirim ke telegram untuk memberi tahu Developer."""
     # Log the error before we do anything else, so we can see it even if something breaks.
     LOGGER.error(
-        msg="Exception while handling an update:", exc_info=context.error
+        msg="Pengecualian saat menangani pembaruan:", exc_info=context.error
     )
     if isinstance(context.error, SQLAlchemyError) or isinstance(
         context.error, DBAPIError
@@ -302,8 +301,8 @@ def error_handler(update, context):
         # Build the message with some markup and additional information about what happened.
         # You might need to add some logic to deal with messages longer than the 4096 character limit.
         message = (
-            f"An exception was raised while handling an update\n"
-            f"update = {(json.dumps(update.to_dict(), indent=2, ensure_ascii=False))}"
+            f"Pengecualian muncul saat menangani pembaruan\n"
+            f"pembaruan = {(json.dumps(update.to_dict(), indent=2, ensure_ascii=False))}"
             "\n\n"
             f"context.chat_data = {(str(context.chat_data))}\n\n"
             f"context.user_data = {(str(context.user_data))}\n\n"
@@ -334,7 +333,7 @@ def error_handler(update, context):
     # Finally, send the message
     context.bot.send_message(
         chat_id=MESSAGE_DUMP,
-        text="an error has been found here !!!",
+        text="kesalahan telah ditemukan di sini !!!",
         reply_markup=markup,
     )
 
@@ -349,7 +348,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "Here is the help for the *{}* module:\n".format(
+                "Berikut adalah bantuan untuk *{}* module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -408,15 +407,15 @@ def help_button(update, context):
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
-        if excp.message == "Message is not modified":
+        if excp.message == "Pesan tidak diubah":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Message can't be deleted":
+        elif excp.message == "Pesan tidak dapat dihapus":
             pass
         else:
             query.message.edit_text(excp.message)
-            LOGGER.exception("Exception in help buttons. %s", str(query.data))
+            LOGGER.exception("Pengecualian di tombol bantuan. %s", str(query.data))
 
 
 @typing_action
@@ -426,7 +425,7 @@ def staff_help(update, context):
 
     if chat.type != chat.PRIVATE:
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of staff's command"
+            "Hubungi saya di PM untuk mendapatkan daftar perintah staf"
         )
         return
 
