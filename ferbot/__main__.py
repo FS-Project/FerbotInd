@@ -274,7 +274,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_photo(
-                "https://i.ibb.co/1mkVFnW/logo-header-ferbotind-jpg.jpg",
+                "https://i.ibb.co/W24dbBW/logo-header-ferbotind.jpg",
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
