@@ -1,3 +1,16 @@
+### FerbotInd
+
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+<img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.1-blue?style=for-the-badge&logo=appveyor"/>
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/FS-Project/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerbotIndn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerbotInd/pulls)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotInd/graphs/commit-activity)
+![logo](https://i.ibb.co/W24dbBW/logo-header-ferbotind.jpg)
+
+### [read in english](https://github.com/FS-Project/FerbotInd/blob/master/README.md)
+
 Bot Python telegram modular yang berjalan di python3 dengan database sqlalchemy.
 
 Awalnya bot manajemen grup sederhana dengan beberapa fitur admin, dan telah berkembang, menjadi sangat modular dan
