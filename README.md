@@ -1,12 +1,12 @@
-# FerBotEn
+# FerbotInd
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.1-blue?style=for-the-badge&logo=appveyor"/>
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/FS-Project/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerBotEn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerBotEn/pulls)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerBotEn/graphs/commit-activity)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerbotIndn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerbotInd/pulls)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotIndn/graphs/commit-activity)
 ![logo](https://i.ibb.co/1mkVFnW/logo-header-ferbotind-jpg.jpg)
 
 A modular telegram Python bot running on python3 with sqlalchemy database.
@@ -14,7 +14,7 @@ A modular telegram Python bot running on python3 with sqlalchemy database.
 Originally a simple group management bot with multiple admin features, it has evolved, becoming extremely modular and
 simple to use. Note that this project uses a well-known Telegram-bot of its time @BanhammerMarie_bot from Paul Larson as its base.
 
-Can be found on telegram as [Ferbot](https://t.me/FerBotEn).
+Can be found on telegram as [FerbotInd](https://t.me/FerBotInd_bot).
 Report bug's to [👤](https://t.me/Fernans1)
 
 ## Credits
