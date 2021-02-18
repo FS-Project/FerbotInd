@@ -1,4 +1,4 @@
-# FerbotInd
+### FerbotInd
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.1-blue?style=for-the-badge&logo=appveyor"/>
@@ -6,8 +6,10 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerbotIndn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerbotInd/pulls)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotIndn/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotInd/graphs/commit-activity)
 ![logo](https://i.ibb.co/1mkVFnW/logo-header-ferbotind-jpg.jpg)
+
+### [BACA DENGAN BAHASA INDONESIA](https://github.com/FS-Project/FerbotInd/blob/master/README.IND.md)
 
 A modular telegram Python bot running on python3 with sqlalchemy database.
 
@@ -152,7 +154,7 @@ All that is needed is that your .py file is in the modules folder.
 
 To add commands, make sure to import the dispatcher via
 
-`from ubotindo import dispatcher`.
+`from ferbot import dispatcher`.
 
 You can then add commands using the usual
 
