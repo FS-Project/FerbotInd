@@ -7,7 +7,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerbotIndn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerbotInd/pulls)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotInd/graphs/commit-activity)
-![logo](https://i.ibb.co/1mkVFnW/logo-header-ferbotind-jpg.jpg)
+![logo](https://i.ibb.co/W24dbBW/logo-header-ferbotind.jpg)
 
 ### [BACA DENGAN BAHASA INDONESIA](https://github.com/FS-Project/FerbotInd/blob/master/README.IND.md)
 
