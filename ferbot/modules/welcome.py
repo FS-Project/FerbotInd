@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -120,8 +120,8 @@ def send(update, message, keyboard, backup_message):
             msg = update.effective_message.reply_text(
                 markdown_parser(
                     backup_message
-                    + "\nNote: the current message has an invalid url "
-                    "in one of its buttons. Please update."
+                    + "\nNote: pesan saat ini memiliki url yang tidak "
+                    "pesan saat ini memiliki url yang tidak."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
@@ -130,9 +130,9 @@ def send(update, message, keyboard, backup_message):
             msg = update.effective_message.reply_text(
                 markdown_parser(
                     backup_message
-                    + "\nNote: the current message has buttons which "
-                    "use url protocols that are unsupported by "
-                    "telegram. Please update."
+                    + "\nNote: Pesan saat ini memiliki tombol yang menggunakan "
+                    "protokol url yang tidak didukung "
+                    "oleh telegram. Harap perbarui."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
@@ -141,23 +141,23 @@ def send(update, message, keyboard, backup_message):
             msg = update.effective_message.reply_text(
                 markdown_parser(
                     backup_message
-                    + "\nNote: the current message has some bad urls. "
-                    "Please update."
+                    + "\nNote: Pesan saat ini memiliki beberapa url buruk. "
+                    "Harap perbarui."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
             )
             LOGGER.warning(message)
             LOGGER.warning(keyboard)
-            LOGGER.exception("Could not parse! got invalid url host errors")
+            LOGGER.exception("Tidak bisa mengurai! mendapat kesalahan host url tidak valid")
         elif excp.message == "Have no rights to send a message":
             return
         else:
             msg = update.effective_message.reply_text(
                 markdown_parser(
                     backup_message
-                    + "\nNote: An error occured when sending the "
-                    "custom message. Please update."
+                    + "\nNote: Terjadi kesalahan saat mengirim "
+                    "pesan khusus. Harap perbarui."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
@@ -218,7 +218,7 @@ def new_member(update, context):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "My Owner in the house Let's party 🎉",
+                    "Pemilik saya di hadir. Ayo berpesta 🎉",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -231,7 +231,7 @@ def new_member(update, context):
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "My Dev Here, let's see what happened now 🔥",
+                    "Dev Saya Di sini, mari kita lihat apa yang terjadi sekarang 🔥",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -240,7 +240,7 @@ def new_member(update, context):
             elif new_mem.id == context.bot.id:
                 try:
                     update.effective_message.reply_text(
-                        "Hey 😍 {}, I'm {}! Thank you for adding me to {}".format(
+                        "Hey 😍 {}, Saya {}! Terimakasih telah menambahkan saya di {}".format(
                             user.first_name, context.bot.first_name, chat_name
                         ),
                         reply_to_message_id=reply,
@@ -336,7 +336,7 @@ def new_member(update, context):
                             can_change_info=False,
                             can_add_web_page_previews=False,
                         ),
-                        until_date=(int(time.time() + 24 * 60 * 60)),
+                        until_date=(int(time.time() + 0 * 5 * 0)),
                     )
                 if welc_mutes == "strong":
                     welcome_bool = False
