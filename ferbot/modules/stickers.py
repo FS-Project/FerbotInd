@@ -482,7 +482,7 @@ def stickerid(update, context):
 
 
 __help__ = """
-Stiker Kanging dipermudah dengan modul stiker!
+Mencury stiker dipermudah dengan modul stiker!
 
 × /stickerid: Balas stiker untuk memberi tahu Anda ID filenya.
 × /getsticker: Balas stiker kepada saya untuk mengupload file PNG mentahnya.
