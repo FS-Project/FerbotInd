@@ -218,7 +218,7 @@ def new_member(update, context):
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "Pemilik saya di hadir. Ayo berpesta 🎉",
+                    "Pemilik saya di hadir disini. Ayo berpesta 🎉",
                     reply_to_message_id=reply,
                 )
                 welcome_log = (
@@ -336,7 +336,7 @@ def new_member(update, context):
                             can_change_info=False,
                             can_add_web_page_previews=False,
                         ),
-                        until_date=(int(time.time() + 0 * 30 * 0)),
+                        until_date=(int(time.time() + 0 * 30 * 30)),
                     )
                 if welc_mutes == "strong":
                     welcome_bool = False
@@ -371,7 +371,7 @@ def new_member(update, context):
                         )
                     new_join_mem = f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
                     message = msg.reply_text(
-                        f"{new_join_mem}, Klik disini untuk memverifikasi bahwa anda Manusia.\nKamu mempunyai 24 jam.",
+                        f"{new_join_mem}, Klik disini untuk memverifikasi bahwa anda Manusia.\nKamu mempunyai waktu 24 jam.",
                         reply_markup=InlineKeyboardMarkup(
                             [
                                 {
@@ -650,7 +650,7 @@ def welcome(update, context):
         else:
             # idek what you're writing, say yes or no
             update.effective_message.reply_text(
-                "Saya mengerti 'on/yes' atau 'off/no' saja!"
+                "Saya hanya mengerti 'on/yes' atau 'off/no' saja!"
             )
 
 
@@ -1019,33 +1019,33 @@ def user_button(update, context):
                     sql.set_clean_welcome(chat.id, sent.message_id)
 
     else:
-        query.answer(text="You're not allowed to do this!")
+        query.answer(text="Anda tidak diizinkan melakukan ini!")
 
 
 WELC_HELP_TXT = (
-    "Your group's welcome/goodbye messages can be personalised in multiple ways. If you want the messages"
-    " to be individually generated, like the default welcome message is, you can use *these* variables:\n"
-    " - `{{first}}`: this represents the user's *first* name\n"
-    " - `{{last}}`: this represents the user's *last* name. Defaults to *first name* if user has no "
-    "last name.\n"
-    " - `{{fullname}}`: this represents the user's *full* name. Defaults to *first name* if user has no "
-    "last name.\n"
-    " - `{{username}}`: this represents the user's *username*. Defaults to a *mention* of the user's "
-    "first name if has no username.\n"
-    " - `{{mention}}`: this simply *mentions* a user - tagging them with their first name.\n"
-    " - `{{id}}`: this represents the user's *id*\n"
-    " - `{{count}}`: this represents the user's *member number*.\n"
-    " - `{{chatname}}`: this represents the *current chat name*.\n"
-    "\nEach variable MUST be surrounded by `{{}}` to be replaced.\n"
-    "Welcome messages also support markdown, so you can make any elements bold/italic/code/links. "
-    "Buttons are also supported, so you can make your welcomes look awesome with some nice intro "
-    "buttons.\n"
-    "To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{}?start=group_id)`. "
-    "Simply replace `group_id` with your group's id, which can be obtained via /id, and you're good to "
-    "go. Note that group ids are usually preceded by a `-` sign; this is required, so please don't "
-    "remove it.\n"
-    "If you're feeling fun, you can even set images/gifs/videos/voice messages as the welcome message by "
-    "replying to the desired media, and calling /setwelcome.".format(
+    " Pesan selamat datang/selamat tinggal grup Anda dapat dipersonalisasi dengan berbagai cara. Jika Anda menginginkan pesan"
+    " untuk dibuat satu per satu, seperti pesan selamat datang default, Anda dapat menggunakan variabel *ini*:\n"
+    " - `{{first}}`: ini mewakili nama *depan* pengguna\n"
+    " - `{{last}}`: ini mewakili nama *terakhir* pengguna. Default-nya adalah *nama depan* jika pengguna tidak "
+    "memiliki nama belakang.\n"
+    " - `{{fullname}}`:  ini mewakili nama *lengkap* pengguna. Default-nya adalah *nama depan* jika pengguna tidak memiliki"
+    "memiliki nama belakang.\n"
+    " - `{{username}}`: ini mewakili *nama pengguna* pengguna. Secara default, *mention* pengguna "
+    "nama depan jika tidak memiliki nama pengguna.\n"
+    "-`{{mention}}`: ini hanya * menyebutkan * pengguna - memberi tag mereka dengan nama depan mereka.\n"
+    "-`{{id}}`: ini mewakili *id* pengguna.\n"
+    "-`{{count}}`: ini mewakili *nomor anggota* pengguna.\n"
+    "-`{{chatname}}`: ini mewakili *nama obrolan saat ini*.\n"
+    "\nSetiap variabel HARUS diapit oleh`{{}}`untuk diganti.\n"
+    "Pesan selamat datang juga mendukung penurunan harga, sehingga Anda dapat membuat elemen apa pun dengan huruf tebal/miring/kode/tautan."
+    "Tombol juga didukung, sehingga Anda dapat membuat sambutan Anda terlihat luar biasa dengan beberapa intro yang bagus"
+    "tombol.\n"
+    "Untuk membuat tombol yang menautkan ke aturan Anda, gunakan ini:`[Rules](buttonurl://t.me/{}?Start=group_id)`."
+    "Cukup ganti` group_id` dengan id grup Anda, yang dapat diperoleh melalui / id, dan Anda siap "
+    "go. Perhatikan bahwa id grup biasanya diawali dengan tanda`-`; ini diperlukan, jadi tolong jangan "
+    "hapus.\n"
+    "Jika Anda merasa senang, Anda bahkan dapat menyetel gambar/gif/video/pesan suara sebagai pesan selamat datang dengan"
+    "membalas media yang diinginkan, dan memanggil/menyetel selamat datang.".format(
         dispatcher.bot.username
     )
 )
@@ -1081,8 +1081,8 @@ def __chat_settings__(chat_id, user_id):
     clean_welc_pref = sql.get_clean_pref(chat_id)
     welc_mutes_pref = sql.get_welc_mutes_pref(chat_id)
     return (
-        "This chat has it's welcome preference set to `{}`.\n"
-        "It's goodbye preference is `{}`. \n\n"
+        "Obrolan ini memiliki pesan selamat datang yang disetel ke `{}`.\n"
+        "Ini pesan selamat tinggal `{}`. \n\n"
         "*Service preferences:*\n"
         "\nClean welcome: `{}`"
         "\nWelcome mutes: `{}`".format(
