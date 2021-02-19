@@ -55,7 +55,7 @@ def afk(update, context):
         reason = args[1]
         if len(reason) > 100:
             reason = reason[:100]
-            notice = "\nYour afk reason was shortened to 100 characters."
+            notice = "\nAlasan afk Anda disingkat menjadi 100 karakter."
     else:
         reason = ""
 
@@ -65,7 +65,7 @@ def afk(update, context):
     afksend = msg.reply_text(
         afkstr.format(update.effective_user.first_name, notice)
     )
-    sleep(5)
+    sleep(1000)
     try:
         afksend.delete()
     except BadRequest:
@@ -86,20 +86,20 @@ def no_longer_afk(update, context):
         firstname = update.effective_user.first_name
         try:
             options = [
-                "{} is here!",
-                "{} is back!",
-                "{} is now in the chat!",
-                "{} is awake!",
-                "{} is back online!",
-                "{} is finally here!",
-                "Welcome back! {}",
-                "Where is {}?\nIn the chat!",
+                "{} Berada disini!",
+                "{} Telah kembali!",
+                "{} Sekarang sedang bersilahturahmi!",
+                "{} Sudah bangun dari tidur!",
+                "{} Sudah onlen kembali!",
+                "{} Akhirnya kembali!",
+                "Selamat datang kembali! {}",
+                "Di mana {}? \nDalam obrolan!",
             ]
             chosen_option = random.choice(options)
             unafk = update.effective_message.reply_text(
                 chosen_option.format(firstname)
             )
-            sleep(10)
+            sleep(1000)
             unafk.delete()
         except BaseException:
             return
@@ -144,7 +144,7 @@ def reply_afk(update, context):
                     chat = bot.get_chat(user_id)
                 except BadRequest:
                     print(
-                        "Error: Could not fetch userid {} for AFK module".format(
+                        "Error: Tidak dapat mengambil userid {} untuk modul AFK".format(
                             user_id
                         )
                     )
@@ -170,17 +170,17 @@ def check_afk(update, context, user_id, fst_name, userc_id):
         if not user["reason"]:
             if int(userc_id) == int(user_id):
                 return
-            res = "{} is afk".format(fst_name)
+            res = "{} sedang AFK".format(fst_name)
             replafk = update.effective_message.reply_text(res)
         else:
             if int(userc_id) == int(user_id):
                 return
-            res = "<b>{}</b> is away from keyboard! says it's because of <b>Reason:</b> <code>{}</code>".format(
+            res = "<b>{}</b> Sedang tidak tersedia sekarang! <b>Karena:</b> <code>{}</code>".format(
                 fst_name, user["reason"])
             replafk = update.effective_message.reply_text(
                 res, parse_mode="html"
             )
-        sleep(10)
+        sleep(1000)
         try:
             replafk.delete()
         except BadRequest:
@@ -192,10 +192,10 @@ def __gdpr__(user_id):
 
 
 __help__ = """
-When marked as AFK, any mentions will be replied to with a message to say you're not available!
+Saat anda AFK, setiap anda di panggil saya akan mengakatan bahwa anda tidak tersedia atau alasan anda!
 
- × /afk <reason>: Mark yourself as AFK.
- × brb <reason>: Same as the afk command - but not a command.
+ × /afk <alasan>: Menandai anda sebagai pengguna AFK.
+ × brb <alasan>: Sama seperti '/afk' tetapi ini tanpa / .
 """
 
 
