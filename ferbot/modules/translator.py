@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -46,7 +46,7 @@ def gtrans(update, context):
             msg.reply_to_message.poll.question
         )
     except AttributeError:
-        return msg.reply_text("Give me the text to translate!")
+        return msg.reply_text("Berikan saya text untuk di translate!")
 
     ignore_text = UNICODE_EMOJI.keys()
     for emoji in ignore_text:
@@ -59,12 +59,12 @@ def gtrans(update, context):
         source_lan = translator.detect(translate_text)[1].title()
         des_lan = LANGUAGES.get(lang).title()
         msg.reply_text(
-            "Translated from {} to {}.\n {}".format(
+            "Di Translate dari {} ke {}.\n {}".format(
                 source_lan, des_lan, translated
             )
         )
     except BaseException:
-        msg.reply_text("Error! invalid language code.")
+        msg.reply_text("Error! kode bahasa tidak valid.")
 
 
 @send_action(ChatAction.RECORD_AUDIO)
@@ -76,18 +76,18 @@ def gtts(update, context):
             reply = msg.reply_to_message.text
         else:
             return msg.reply_text(
-                "Reply to some message or enter some text to convert it into audio format!"
+                "Balas beberapa pesan atau masukkan beberapa teks untuk mengubahnya menjadi format audio!"
             )
         for x in "\n":
             reply = reply.replace(x, "")
     try:
         tts = gTTS(reply)
-        tts.save("ubotindo.mp3")
-        with open("ubotindo.mp3", "rb") as speech:
+        tts.save("Fer-bot.mp3")
+        with open("Fer-bot.mp3", "rb") as speech:
             msg.reply_audio(speech)
     finally:
-        if os.path.isfile("ubotindo.mp3"):
-            os.remove("ubotindo.mp3")
+        if os.path.isfile("Fer-bot.mp3"):
+            os.remove("Fer-bot.mp3")
 
 
 # Open API key
@@ -123,14 +123,14 @@ def spellcheck(update, context):
         update.effective_message.reply_text(curr_string)
     else:
         update.effective_message.reply_text(
-            "Reply to some message to get grammar corrected text!"
+            "Balas beberapa pesan untuk mendapatkan teks koreksi tata bahasa!"
         )
 
 
 __help__ = """
-× /tr or /tl: - To translate to your language, by default language is set to english, use `/tr <lang code>` for some other language!
-× /spell: - As a reply to get grammar corrected text of gibberish message.
-× /tts: - To some message to convert it into audio format!
+× /tr atau /tl: - Untuk menerjemahkan ke bahasa Anda, secara default bahasa diatur ke bahasa Inggris, gunakan `/tr <kode bahasa>` untuk diatur ke bahasa lain!
+× /spell: - Sebagai balasan untuk mendapatkan koreksi tata bahasa teks pesan nonsens.
+× /tts: - Untuk beberapa pesan untuk mengubahnya menjadi format audio!
 """
 __mod_name__ = "Translate"
 
