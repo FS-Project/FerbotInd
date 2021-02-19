@@ -103,7 +103,7 @@ def promote(update, context):
         "<b>{}:</b>"
         "\n#PROMOTED"
         "\n<b>Admin:</b> {}"
-        "\n<b>Pengguna:</b> {}".format(
+        "\n<b>User:</b> {}".format(
             html.escape(chat.title),
             mention_html(user.id, user.first_name),
             mention_html(user_member.user.id, user_member.user.first_name),
@@ -163,7 +163,7 @@ def demote(update, context):
             "<b>{}:</b>"
             "\n#DEMOTED"
             "\n<b>Admin:</b> {}"
-            "\n<b>Pengguna:</b> {}".format(
+            "\n<b>User:</b> {}".format(
                 html.escape(chat.title),
                 mention_html(user.id, user.first_name),
                 mention_html(user_member.user.id, user_member.user.first_name),
@@ -341,7 +341,7 @@ def set_title(update, context):
 
     if user_member.status == "creator":
         message.reply_text(
-            "Orang ini MENCIPTAKAN obrolan, bagaimana saya bisa mengatur judul khusus untuknya?"
+            "Orang ini yang membuat obrolan, bagaimana saya bisa mengatur judul khusus untuknya?"
         )
         return
 
@@ -562,12 +562,12 @@ dilakukan dengan mudah menggunakan bot.
  × /invitelink: Mendapat invitelink obrolan pribadi.
  × /promote: Mempromosikan balasan pengguna.
  × /demote: Mendemosikan balasan pengguna.
- × /settitle : Menetapkan judul khusus untuk admin yang dipromosikan oleh bot.
+ × /settitle: Menetapkan judul khusus untuk admin yang dipromosikan oleh bot.
  × /setgpic: Sebagai balasan ke file atau foto untuk mengatur foto profil grup!
  × /delgpic: Sama seperti di atas tetapi untuk menghapus foto profil grup.
- × /setgtitle <judul_baru>: Mengatur judul obrolan baru di grup Anda.
+ × /setgtitle <judulbaru>: Mengatur judul obrolan baru di grup Anda.
  × /setsticker: Sebagai balasan untuk beberapa stiker untuk mengaturnya sebagai set stiker grup!
- × /setdescription: <description> Mengatur deskripsi obrolan baru dalam grup.
+ × /setdescription: <deskripsi> Mengatur deskripsi obrolan baru dalam grup.
 
 *Catatan*: Untuk mengatur stiker grup, grup harus memiliki minimal 100 anggota.
 
