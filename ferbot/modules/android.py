@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -70,7 +70,6 @@ def magisk(update, context):
         parse_mode=ParseMode.MARKDOWN,
         disable_web_page_preview=True,
     )
-    time.sleep(300)
     try:
         del_msg.delete()
         update.effective_message.delete()
@@ -93,7 +92,6 @@ def device(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
-        time.sleep(5)
         try:
             del_msg.delete()
             update.effective_message.delete()
@@ -117,13 +115,12 @@ def device(update, context):
             f"Codename: <code>{codename}</code>\n\n"
         )
     except KeyError:
-        reply = f"Couldn't find info about {device}!\n"
+        reply = f"Tidak dapat menemukan info tentang {device}!\n"
         del_msg = update.effective_message.reply_text(
             "{}".format(reply),
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
-        time.sleep(5)
         try:
             del_msg.delete()
             update.effective_message.delete()
@@ -144,14 +141,13 @@ def twrp(update, context):
     args = context.args
     if len(args) == 0:
         reply = (
-            "No codename provided, write a codename for fetching informations."
+            "Tuliskan codename yang ingin dicari!"
         )
         del_msg = update.effective_message.reply_text(
             "{}".format(reply),
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
-        time.sleep(5)
         try:
             del_msg.delete()
             update.effective_message.delete()
@@ -162,7 +158,7 @@ def twrp(update, context):
     device = " ".join(args)
     url = get(f"https://eu.dl.twrp.me/{device}/")
     if url.status_code == 404:
-        reply = f"Couldn't find twrp downloads for {device}!\n"
+        reply = f"Tidak dapat menemukan unduhan twrp untuk {device}!\n"
         del_msg = update.effective_message.reply_text(
             "{}".format(reply),
             parse_mode=ParseMode.MARKDOWN,
@@ -178,7 +174,7 @@ def twrp(update, context):
             ):
                 return
     else:
-        reply = f"*Latest Official TWRP for {device}*\n"
+        reply = f"*Latest Official TWRP untuk {device}*\n"
         db = get(DEVICES_DATA).json()
         newdevice = (
             device.strip("lte") if device.startswith("beyond") else device
@@ -220,7 +216,7 @@ def los(update, context) -> str:
 
     if device == "":
         reply_text = (
-            "*Please Type Your Device Codename*\nExample : `/los lavender`"
+            "*Tolong ketik Codename handphone anda*\nContoh : `/los merlin`"
         )
         message.reply_text(
             reply_text,
@@ -247,7 +243,7 @@ def los(update, context) -> str:
         keyboard = [
             [
                 InlineKeyboardButton(
-                    text="Click Here To Downloads", url=f"{url}"
+                    text="Klik disini untuk mengunduh", url=f"{url}"
                 )
             ]
         ]
@@ -298,7 +294,7 @@ def bootleg(update, context) -> str:
 
     if codename == "":
         message.reply_text(
-            "*Please Type Your Device Codename*\nExample : `/bootleg lavender`",
+            "*Tolong masukan Codename handphone anda*\nContoh : `/bootleg merlin`",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
@@ -328,7 +324,7 @@ def bootleg(update, context) -> str:
                 mirrorlink = None
         except KeyError:
             message.reply_text(
-                "`Couldn't find any results matching your query.`",
+                "`Tidak dapat menemukan hasil apa pun yang cocok dengan yang Anda berikan.`",
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
             )
@@ -344,7 +340,7 @@ def bootleg(update, context) -> str:
         keyboard = [
             [
                 InlineKeyboardButton(
-                    text="Click Here To Downloads", url=f"{downloadlink}"
+                    text="Klik disni untuk mengunduhs", url=f"{downloadlink}"
                 )
             ]
         ]
@@ -359,7 +355,7 @@ def bootleg(update, context) -> str:
 
     elif fetch.status_code == 404:
         message.reply_text(
-            "`Couldn't reach api`",
+            "`Tidak dapat mencapai api`",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
@@ -367,14 +363,14 @@ def bootleg(update, context) -> str:
 
 
 __help__ = """
-Get Latest magisk relese, Twrp for your device or info about some device using its codename, Directly from Bot!
+Dapatkan relese magisk terbaru, Twrp untuk perangkat Anda atau info tentang beberapa perangkat yang menggunakan nama kodenya, Langsung dari Bot!
 
-*Android related commands:*
+*Perintah terkait Android:*
 
- × /magisk - Gets the latest magisk release for Stable/Beta/Canary.
- × /device <codename> - Gets android device basic info from its codename.
- × /twrp <codename> -  Gets latest twrp for the android device using the codename.
- × /los <codename> - Gets Latest los build.
+ × /magisk - Dapatkan rilis magisk terbaru untuk Stable / Beta / Canary.
+ × /device <codename> - Mendapat info dasar perangkat android dari codename-nya.
+ × /twrp <codename> - Dapatkan twrp terbaru untuk perangkat android menggunakan codename.
+ × /los <codename> - Mendapat build los terbaru.
 """
 
 __mod_name__ = "Android"
