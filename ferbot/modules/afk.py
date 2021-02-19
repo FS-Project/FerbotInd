@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -65,7 +65,6 @@ def afk(update, context):
     afksend = msg.reply_text(
         afkstr.format(update.effective_user.first_name, notice)
     )
-    sleep(1000)
     try:
         afksend.delete()
     except BadRequest:
@@ -86,12 +85,12 @@ def no_longer_afk(update, context):
         firstname = update.effective_user.first_name
         try:
             options = [
-                "{} Berada disini!",
-                "{} Telah kembali!",
-                "{} Sekarang sedang bersilahturahmi!",
+                "{} Kembali lagi disini!",
+                "{} Telah kembali kesini!",
+                "{} Sekarang sedang bersilahturahmi disini!",
                 "{} Sudah bangun dari tidur!",
                 "{} Sudah onlen kembali!",
-                "{} Akhirnya kembali!",
+                "{} Akhirnya kembali kesini!",
                 "Selamat datang kembali! {}",
                 "Di mana {}? \nDalam obrolan!",
             ]
@@ -99,7 +98,6 @@ def no_longer_afk(update, context):
             unafk = update.effective_message.reply_text(
                 chosen_option.format(firstname)
             )
-            sleep(1000)
             unafk.delete()
         except BaseException:
             return
@@ -180,7 +178,6 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             replafk = update.effective_message.reply_text(
                 res, parse_mode="html"
             )
-        sleep(1000)
         try:
             replafk.delete()
         except BadRequest:
