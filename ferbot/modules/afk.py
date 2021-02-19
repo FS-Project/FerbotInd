@@ -34,8 +34,8 @@ from ferbot.modules.disable import (
 from ferbot.modules.no_sql import afk_db
 from ferbot.modules.users import get_user_id
 
-AFK_GROUP = 7
-AFK_REPLY_GROUP = 8
+AFK_GROUP = 100
+AFK_REPLY_GROUP = 100
 
 
 """This Function to triger bot"""
