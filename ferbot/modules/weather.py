@@ -36,13 +36,13 @@ from ferbot.modules.helper_funcs.alternate import typing_action
 def weather(update, context):
     args = context.args
     if len(args) == 0:
-        reply = "Write a location to check the weather."
+        reply = "Sebutkan lokasi untuk memeriksa cuaca."
         del_msg = update.effective_message.reply_text(
             "{}".format(reply),
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
-        time.sleep(5)
+        time.sleep(120)
         try:
             del_msg.delete()
             update.effective_message.delete()
@@ -59,13 +59,13 @@ def weather(update, context):
     request = requests.get(url)
     result = json.loads(request.text)
     if request.status_code != 200:
-        reply = "Location not valid."
+        reply = "Lokasi tidak valid."
         del_msg = update.effective_message.reply_text(
             "{}".format(reply),
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
-        time.sleep(5)
+        time.sleep(120)
         try:
             del_msg.delete()
             update.effective_message.delete()
@@ -88,7 +88,7 @@ def weather(update, context):
         conddet = weath["description"]
         country_name = cname[f"{result['sys']['country']}"]
     except KeyError:
-        update.effective_message.reply_text("Invalid Location!")
+        update.effective_message.reply_text("Lokasi tidak valid!")
         return
 
     if icon <= 232:  # Rain storm
@@ -126,13 +126,13 @@ def weather(update, context):
         temp = str(round(tF))
         return temp
 
-    reply = f"*Current weather for {cityname}, {country_name} is*:\n\n*Temperature:* `{celsius(curtemp)}°C ({fahr(curtemp)}ºF), feels like {celsius(feels_like)}°C ({fahr(feels_like)}ºF) \n`*Condition:* `{condmain}, {conddet}` {icon}\n*Humidity:* `{humidity}%`\n*Wind:* `{kmph[0]} km/h`\n"
+    reply = f"*Cuaca saat ini untuk {cityname}, {country_name} is*:\n\n*Temperature:* `{celsius(curtemp)}°C ({fahr(curtemp)}ºF), terasa seperti {celsius(feels_like)}°C ({fahr(feels_like)}ºF) \n`*Condition:* `{condmain}, {conddet}` {icon}\n*Humidity:* `{humidity}%`\n*Wind:* `{kmph[0]} km/h`\n"
     del_msg = update.effective_message.reply_text(
         "{}".format(reply),
         parse_mode=ParseMode.MARKDOWN,
         disable_web_page_preview=True,
     )
-    time.sleep(30)
+    time.sleep(120)
     try:
         del_msg.delete()
         update.effective_message.delete()
@@ -146,15 +146,15 @@ def weather(update, context):
 __help__ = """
 Weather module:
 
- × /weather <city>: Gets weather information of particular place!
+ ⇝ /cuaca <kota>: Mendapatkan informasi cuaca dari tempat tertentu!
 
- \* To prevent spams weather command and the output will be deleted after 30 seconds
+ \* Untuk mencegah perintah cuaca spam dan hasilnya akan dihapus setelah 2 menit
 """
 
-__mod_name__ = "Weather"
+__mod_name__ = "Cuaca"
 
 WEATHER_HANDLER = DisableAbleCommandHandler(
-    "weather", weather, pass_args=True, run_async=True
+    "cuaca", weather, pass_args=True, run_async=True
 )
 
 dispatcher.add_handler(WEATHER_HANDLER)
