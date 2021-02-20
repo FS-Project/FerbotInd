@@ -109,10 +109,10 @@ Hallo! Nama Saya *{dispatcher.bot.first_name}*.
 Saya adalah bot yang dapat Anda jadikan manajemen grup untuk memudahkan Anda.
 
 *Main* perintah yang tersedia:
- × /start: Memulai Saya, atau bisa mengecek apakah saya hidup...
- × /help: Mengirim anda pesan ini di PM.
- × /help <nama modul>: Mengirim anda pesan tentang modul yang anda sebutkan.
- × /settings: Jika di PM: akan mengirimkan setelan Anda untuk semua modul yang didukung.
+ ⇝ /start: Memulai Saya, atau bisa mengecek apakah saya hidup...
+ ⇝ /help: Mengirim anda pesan ini di PM.
+ ⇝ /help <nama modul>: Mengirim anda pesan tentang modul yang anda sebutkan.
+ ⇝ /settings: Jika di PM: akan mengirimkan setelan Anda untuk semua modul yang didukung.
    - Jika di Group: akan mengarahkan Anda ke pm, dan menunjukan beberapa pengaturan yang dipakai.
  \nKlik tombol di bawah untuk mendapatkan tentang modul yang anda pilih!"""
 
@@ -121,31 +121,31 @@ STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
 Here is all the staff's commands. Users above has the command access for all commands below.
 
 *OWNER*
-× /broadcast: Send a broadcast message to all chat that i'm currently in.
-× /staffids: Get all staff's you have.
-× /ip: Sends the bot's IP address to ssh in if necessary (PM only).
+⇝ /broadcast: Send a broadcast message to all chat that i'm currently in.
+⇝ /staffids: Get all staff's you have.
+⇝ /ip: Sends the bot's IP address to ssh in if necessary (PM only).
 
 *DEV USERS*
-× /gitpull: Pull latest update.
-× /reboot: Restart the bot.
-× /dbcleanup: Clean my invalid database.
-× /leavemutedchats: Leave all chats where i can't send message.
-× /leave <chatid>: Tell me to leave the given group. (alias /leavechat /leavegroup).
-× /stats: List of all blacklists, filters, federations, gbans, etc from all group.
-× /getlink <chatid>: Get chat invite link.
-× /sysinfo: Get my system info.
+⇝ /gitpull: Pull latest update.
+⇝ /reboot: Restart the bot.
+⇝ /dbcleanup: Clean my invalid database.
+⇝ /leavemutedchats: Leave all chats where i can't send message.
+⇝ /leave <chatid>: Tell me to leave the given group. (alias /leavechat /leavegroup).
+⇝ /stats: List of all blacklists, filters, federations, gbans, etc from all group.
+⇝ /getlink <chatid>: Get chat invite link.
+⇝ /sysinfo: Get my system info.
 
 *SUDO USERS*
-× /snipe <chatid> <string>: Tell me to send a message to the given chat.
-× /echo <string>: Like snipe but on the current chat.
-× /chatlist: Get the list of chat that i'm currently in.
-× /ping: Start a ping test.
-× /speedtest: Start a speedtest from my server.
+⇝ /snipe <chatid> <string>: Tell me to send a message to the given chat.
+⇝ /echo <string>: Like snipe but on the current chat.
+⇝ /chatlist: Get the list of chat that i'm currently in.
+⇝ /ping: Start a ping test.
+⇝ /speedtest: Start a speedtest from my server.
 
 *SUPPORT USERS*
-× /gban <userid>: Melarang pengguna secara global.
-× /ungban <userid>: Membuka larangan pengguna yang telah dilarang.
-× /gbanlist: Dapatkan list pengguna yang dilarang secara global."""
+⇝ /gban <userid>: Melarang pengguna secara global.
+⇝ /ungban <userid>: Membuka larangan pengguna yang telah dilarang.
+⇝ /gbanlist: Dapatkan list pengguna yang dilarang secara global."""
 
 
 IMPORTED = {}
