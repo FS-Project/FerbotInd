@@ -95,7 +95,6 @@ BAN_STICKER = os.environ.get("BAN_STICKER", "CAADAgADOwADPPEcAXkko5EB3YGYAg")
 CUSTOM_CMD = os.environ.get("CUSTOM_CMD") or False
 API_WEATHER = os.environ.get("API_OPENWEATHER") or None
 WALL_API = os.environ.get("WALL_API") or None
-SPAMWATCH = os.environ.get("SPAMWATCH_API") or None
 LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY") or None
 
 # add owner to devusers
@@ -105,12 +104,6 @@ DEV_USERS.add(OWNER_ID)
 if str(CUSTOM_CMD).lower() == "false":
     CUSTOM_CMD = False
 
-# Pass if SpamWatch token not set.
-if SPAMWATCH is None:
-    spamwtc = None # pylint: disable=C0103
-    LOGGER.warning("Invalid spamwatch api")
-else:
-    spamwtc = spamwatch.Client(SPAMWATCH)
 
 # Everything Init with this
 updater = tg.Updater(TOKEN, workers=WORKERS)
