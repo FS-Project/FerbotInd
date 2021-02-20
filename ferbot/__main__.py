@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -108,7 +108,7 @@ HELP_STRINGS = f"""
 Hallo! Nama Saya *{dispatcher.bot.first_name}*.
 Saya adalah bot yang dapat Anda jadikan manajemen grup untuk memudahkan Anda.
 
-*Main* commands available:
+*Main* perintah yang tersedia:
  × /start: Memulai Saya, atau bisa mengecek apakah saya hidup...
  × /help: Mengirim anda pesan ini di PM.
  × /help <nama modul>: Mengirim anda pesan tentang modul yang anda sebutkan.
@@ -338,7 +338,7 @@ def error_handler(update, context):
     # Finally, send the message
     context.bot.send_message(
         chat_id=MESSAGE_DUMP,
-        text="kesalahan telah ditemukan di sini !!!",
+        text="kesalahan telah ditemukan di sini!!!",
         reply_markup=markup,
     )
 
@@ -353,7 +353,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "Berikut adalah bantuan untuk *{}* module:\n".format(
+                "Berikut adalah bantuan untuk modul *{}* :\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -412,11 +412,11 @@ def help_button(update, context):
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
-        if excp.message == "Pesan tidak diubah":
+        if excp.message == "Message is not modified":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Pesan tidak dapat dihapus":
+        elif excp.message == "Message can't be deleted":
             pass
         else:
             query.message.edit_text(excp.message)
@@ -485,7 +485,7 @@ def get_help(update, context):
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            "Berikut adalah bantuan yang tersedia untuk *{}* module:\n".format(
+            "Berikut adalah bantuan yang tersedia untuk modul *{}* :\n".format(
                 HELPABLE[module].__mod_name__
             )
             + HELPABLE[module].__help__
@@ -605,7 +605,7 @@ def settings_button(update, context):
             curr_page = int(prev_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                "Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                "Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
                 "yang Anda minati.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -619,7 +619,7 @@ def settings_button(update, context):
             next_page = int(next_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                "Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                "Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
                 "yang Anda minati.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -632,7 +632,7 @@ def settings_button(update, context):
             chat_id = back_match.group(1)
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                text="Halo kamu! Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
+                text="Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
                 "yang Anda minati.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -644,11 +644,11 @@ def settings_button(update, context):
         query.message.delete()
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
-        if excp.message == "Pesan tidak diubah":
+        if excp.message == "Message is not modified":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Pesan tidak dapat dihapus":
+        elif excp.message == "Message can't be deleted":
             pass
         else:
             query.message.edit_text(excp.message)
@@ -805,7 +805,7 @@ def main():
         updater.start_polling(timeout=15, read_latency=5, clean=True)
         if MESSAGE_DUMP:
             updater.bot.send_message(
-                chat_id=MESSAGE_DUMP, text="System dimulai..."
+                chat_id=MESSAGE_DUMP, text="System berhasil dijalankan..."
             )
 
     updater.idle()
