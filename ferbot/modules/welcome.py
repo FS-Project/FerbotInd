@@ -1095,40 +1095,43 @@ __help__ = """
 {}
 
 *Hanya Admin:*
- ▶ /welcome <on/off>: aktifkan/nonaktifkan pesan selamat datang.
- ▶ /welcome: Menunjukkan pengaturan selamat datang saat ini.
- ▶ /welcome noformat: Menunjukkan pengaturan selamat datang saat ini, tanpa pemformatan - berguna untuk mengedit pesan selamat datang Anda!
- ▶ /goodbye -> Penggunaan dan argumen yang sama seperti /welcome.
- ▶ /setwelcome <text pesan>: Setel pesan selamat datang khusus. Jika digunakan membalas media, gunakan media itu.
- ▶ /setgoodbye <text pesan>: Setel pesan selamat tinggal kustom. Jika digunakan membalas media, gunakan media itu.
- ▶ /resetwelcome: Menyetel ulang ke pesan selamat datang default.
- ▶ /resetgoodbye: Menyetel ulang ke pesan selamat tingal default.
- ▶ /cleanwelcome <on/off>: Jika ada anggota baru maka akan menghapus pesan selamat datang sebelumnya untuk menghindari spamming pada obrolan.
- ▶ /cleanservice <on/off>: Menghapus 'Pengguna telah bergabung' secara otomatis.
- ▶ /welcomemute <off/soft/strong>: Semua pengguna yang bergabung, dibungkam; sebuah tombol akan ditambahkan ke pesan selamat datang agar mereka dapat mengirim pesan. \
-Ini membuktikan bahwa mereka bukan bot! soft - membatasi kemampuan pengguna untuk mengirim media selama 30 menit. strong - dibungkam saat bergabung sampai mereka membuktikan bahwa mereka bukan bot.
- ▶ /welcomehelp: Lihat lebih banyak informasi pemformatan untuk pesan selamat datang/selamat tinggal khusus.
+ ↦ /welcome <on/off>: aktifkan/nonaktifkan pesan selamat datang.
+ ↦ /welcome: Menunjukkan pengaturan selamat datang saat ini.
+ ↦ /welcome noformat: Menunjukkan pengaturan selamat datang saat ini, tanpa pemformatan - berguna untuk mengedit pesan selamat datang Anda!
+ ↦ /goodbye -> Penggunaan dan argumen yang sama seperti /welcome.
+ ↦ /setwelcome <teks pesan>: Setel pesan selamat datang kustom. Jika ingin menggunakan foto/vidio balas foto/vidio itu.
+ ↦ /setgoodbye <teks pesan>: Setel pesan selamat tinggal kustom. Jika ingin menggunakan foto/vidio balas foto/vidio itu.
+ ↦ /resetwelcome: Menyetel ulang ke pesan selamat datang default.
+ ↦ /resetgoodbye: Menyetel ulang ke pesan selamat tingal default.
+ ↦ /cleanwelcome <on/off>: Jika ada anggota baru maka saya akan menghapus pesan selamat datang sebelumnya untuk menghindari spamming pada obrolan.
+ ↦ /cleanservice <on/off>: Jika diaktifkan saya akan menghapus pesan 'Pengguna telah bergabung' secara otomatis.
+ ↦ /welcomemute <off/soft/strong>: - Jika diatur ke `off` semua pengguna yang bergabung akan lolos dari pembisuan, \
+       - jika diatur ke `soft` pengguna baru akan dilarang mengirim media selama 30 menit, \
+       - jika diatur ke `strong` pengguna akan dibisukan sampai mereka menekan tombol `Ya, saya manusia` .
+ ↦ /welcomehelp: Lihat lebih banyak informasi pemformatan untuk pesan selamat datang/selamat tinggal khusus.
 
-Tombol dalam pesan selamat datang menjadi mudah, semua orang tidak suka URL terlihat. Dengan tautan tombol Anda dapat membuat obrolan Anda terlihat lebih \
-rapi dan sederhana.
+Tombol dalam pesan selamat datang akan mempermudah siapa saja, semua orang tidak suka URL terlihat. \
+Dengan tautan tombol Anda dapat membuat obrolan Anda terlihat lebih rapi dan sederhana.
 
-Contoh penggunaan tombol:
-Anda dapat membuat tombol menggunakan `[Text Tombol](buttonurl://contoh.com)`.
+*Contoh penggunaan tombol:*
+Anda dapat membuat tombol menggunakan:
+`[Teks](buttonurl://contoh.com)`.
 
 Jika Anda ingin menambahkan lebih dari 1 tombol, cukup lakukan hal berikut:
 `[Tombol 1](buttonurl://contoh.com)`
 `[Tombol 2](buttonurl://github.com:same)`
 `[Tombol 3](buttonurl://google.com)`
 
-Ujung tautan `: same` digunakan untuk menggabungkan 2 tombol pada baris yang sama dengan 1 baris tombol, sehingga tombol ke-3 akan dipisahkan \
-dari baris yang sama.
+Kegunaan `:same` pada akhir tautan digunakan untuk menggabungkan 2 tombol pada baris yang sama.
 
-Tip: Tombol harus ditempatkan di akhir pesan selamat datang.
+Tip - Tombol harus ditempatkan di akhir pesan selamat datang.
+    - Jika pesan selamat datang tidak keluar saat ada yang bergabung ke grup \
+gunakan `/welcomemute strong` .
 """.format(
     WELC_HELP_TXT
 )
 
-__mod_name__ = "Greetings"
+__mod_name__ = "Welcome"
 
 NEW_MEM_HANDLER = MessageHandler(
     Filters.status_update.new_chat_members, new_member, run_async=True
