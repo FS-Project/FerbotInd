@@ -120,8 +120,8 @@ def send(update, message, keyboard, backup_message):
             msg = update.effective_message.reply_text(
                 markdown_parser(
                     backup_message
-                    + "\nNote: pesan saat ini memiliki url yang tidak "
-                    "pesan saat ini memiliki url yang tidak."
+                    + "\nNote: ppesan saat ini memiliki url yang tidak valid "
+                    "di salah satu tombolnya. Harap perbarui."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
@@ -157,7 +157,7 @@ def send(update, message, keyboard, backup_message):
                 markdown_parser(
                     backup_message
                     + "\nNote: Terjadi kesalahan saat mengirim "
-                    "pesan khusus. Harap perbarui."
+                    "pesan kustom. Harap perbarui."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
@@ -240,7 +240,7 @@ def new_member(update, context):
             elif new_mem.id == context.bot.id:
                 try:
                     update.effective_message.reply_text(
-                        "Hey 😍 {}, Saya {}! Terimakasih telah menambahkan saya di {}".format(
+                        "Hey 😍 {}, Saya {}! Terimakasih telah menambahkan saya di {}. Saya masih dalam perkembangan jadi mohon maaf jika terdapat bug".format(
                             user.first_name, context.bot.first_name, chat_name
                         ),
                         reply_to_message_id=reply,
@@ -371,7 +371,7 @@ def new_member(update, context):
                         )
                     new_join_mem = f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
                     message = msg.reply_text(
-                        f"{new_join_mem}, Klik disini untuk memverifikasi bahwa anda Manusia.\nKamu mempunyai waktu 24 jam.",
+                        f"{new_join_mem}, Klik tombol dibawah untuk memverifikasi bahwa anda Manusia.\nKamu mempunyai waktu 24 jam.",
                         reply_markup=InlineKeyboardMarkup(
                             [
                                 {
@@ -584,7 +584,7 @@ def welcome(update, context):
         )
         update.effective_message.reply_text(
             "Pesan selamat datang grup ini disetel ke: `{}`.\n*Pesan selamat datang "
-            "(tidak mengisi {{}}) adalah:*".format(pref),
+            "(not filling {{}}) adalah:*".format(pref),
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -644,7 +644,7 @@ def welcome(update, context):
         elif args[0].lower() in ("off", "no"):
             sql.set_welc_preference(str(chat.id), False)
             update.effective_message.reply_text(
-                "Aku merajuk, tidak akan menyapa lagi."
+                "Aku merajuk, tidak akan menyapa pengguna yang bergabung lagi."
             )
 
         else:
@@ -665,7 +665,7 @@ def goodbye(update, context):
         pref, goodbye_m, goodbye_type = sql.get_gdbye_pref(chat.id)
         update.effective_message.reply_text(
             "Pesan selamat tinggal grup ini disetel ke: `{}`.\n*Pesan selamat tinggal "
-            "(tidak mengisi {{}}) adalah:*".format(pref),
+            "(not filling {{}}) adalah:*".format(pref),
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -841,8 +841,8 @@ def welcomemute(update, context) -> str:
         elif args[0].lower() in ("strong"):
             sql.set_welcome_mutes(chat.id, "strong")
             msg.reply_text(
-                "Sekarang saya akan melarang orang mengirim pesan saat mereka bergabung dan"
-                " klik tombol agar dapat mengirim pesan."
+                "Sekarang saya akan melarang orang mengirim pesan saat mereka bergabung sampai"
+                " mereka menekan tombol `Ya, Saya manusia` agar dapat mengirim pesan."
             )
             return (
                 "<b>{}:</b>"
@@ -879,7 +879,7 @@ def clean_welcome(update, context) -> str:
         clean_pref = sql.get_clean_pref(chat.id)
         if clean_pref:
             update.effective_message.reply_text(
-                "Saya harus menghapus pesan selamat datang yang berumur maksimal dua hari."
+                "Saya akan menghapus pesan selamat datang yang berumur maksimal dua hari."
             )
         else:
             update.effective_message.reply_text(
@@ -1025,27 +1025,27 @@ def user_button(update, context):
 WELC_HELP_TXT = (
     " Pesan selamat datang/selamat tinggal grup Anda dapat dipersonalisasi dengan berbagai cara. Jika Anda menginginkan pesan"
     " untuk dibuat satu per satu, seperti pesan selamat datang default, Anda dapat menggunakan variabel *ini*:\n"
-    " - `{{first}}`: ini mewakili nama *depan* pengguna\n"
-    " - `{{last}}`: ini mewakili nama *terakhir* pengguna. Default-nya adalah *nama depan* jika pengguna tidak "
-    "memiliki nama belakang.\n"
-    " - `{{fullname}}`:  ini mewakili nama *lengkap* pengguna. Default-nya adalah *nama depan* jika pengguna tidak memiliki"
-    "memiliki nama belakang.\n"
-    " - `{{username}}`: ini mewakili *nama pengguna* pengguna. Secara default, *mention* pengguna "
-    "nama depan jika tidak memiliki nama pengguna.\n"
-    "-`{{mention}}`: ini hanya * menyebutkan * pengguna - memberi tag mereka dengan nama depan mereka.\n"
-    "-`{{id}}`: ini mewakili *id* pengguna.\n"
-    "-`{{count}}`: ini mewakili *nomor anggota* pengguna.\n"
-    "-`{{chatname}}`: ini mewakili *nama obrolan saat ini*.\n"
-    "\nSetiap variabel HARUS diapit oleh`{{}}`untuk diganti.\n"
-    "Pesan selamat datang juga mendukung penurunan harga, sehingga Anda dapat membuat elemen apa pun dengan huruf tebal/miring/kode/tautan."
+    " - `{{first}}`: jika digunakan akan dirubah menjadi nama *depan* pengguna\n"
+    " - `{{last}}`: jika digunakan akan dirubah menjadi nama *terakhir* pengguna."
+    "jika pengguna tidak memiliki nama belakang maka akan menggunakan *nama depan* .\n"
+    " - `{{fullname}}`: jika digunakan akan dirubah menjadi *nama lengkap* pengguna."
+    "jika pengguna tidak memiliki nama belakang maka akan menggunakan *nama depan*.\n"
+    " - `{{username}}`: jika digunakan akan dirubah menjadi *username* pengguna."
+    "jika pengguna tidak memiliki *username* maka akan menggunakan *nama depan*.\n"
+    "- `{{mention}}`: jika digunakan akan dirubah menjadi *nama depan* pengguna.\n"
+    "- `{{id}}`: jika digunakan akan dirubah menjadi *id* pengguna.\n"
+    "- `{{count}}`: jika digunakan akan dirubah menjadi *jumlah pengguna* di grup.\n"
+    "- `{{chatname}}`: jika digunakan akan dirubah menjadi *nama grup*.\n"
+    "\nSetiap variabel *harus* diapit oleh `{{}}`.\n"
+    "Pesan selamat datang juga mendukung markdown, sehingga Anda dapat membuat elemen apa pun dengan huruf tebal/miring/kode/tautan."
     "Tombol juga didukung, sehingga Anda dapat membuat sambutan Anda terlihat luar biasa dengan beberapa intro yang bagus"
-    "tombol.\n"
-    "Untuk membuat tombol yang menautkan ke aturan Anda, gunakan ini:`[Rules](buttonurl://t.me/{}?Start=group_id)`."
-    "Cukup ganti` group_id` dengan id grup Anda, yang dapat diperoleh melalui / id, dan Anda siap "
-    "go. Perhatikan bahwa id grup biasanya diawali dengan tanda`-`; ini diperlukan, jadi tolong jangan "
+    "*Tombol*.\n"
+    "Untuk membuat tombol yang menautkan ke rules grup Anda, gunakan ini:`[Rules](buttonurl://t.me/{}?Start=group_id)`."
+    "Cukup ganti` group_id` dengan id grup Anda, yang dapat dilihat menggunakan /id, "
+    "Perhatikan bahwa id grup biasanya diawali dengan tanda`-`; ini diperlukan, jadi tolong jangan "
     "hapus.\n"
     "Jika Anda merasa senang, Anda bahkan dapat menyetel gambar/gif/video/pesan suara sebagai pesan selamat datang dengan"
-    "membalas media yang diinginkan, dan memanggil/menyetel selamat datang.".format(
+    "membalas media yang diinginkan, dan akan dijadikan sebagai pesan selamat datang.".format(
         dispatcher.bot.username
     )
 )
