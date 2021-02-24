@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2021 FS Project <https://github.com/FS-Project/Ferbot.git>
+# Copyright (C) 2021 FS Project <https://github.com/FS-Project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
@@ -87,12 +87,12 @@ def check_flood(update, context) -> str:
                 until_date=mutetime,
                 permissions=ChatPermissions(can_send_messages=False),
             )
-            execstrings = "Muted for {}".format(getvalue)
+            execstrings = "Sekarang kamu diam selama {}".format(getvalue)
             tag = "TMUTE"
         send_message(
             update.effective_message,
-            "Great, I like to leave flooding to natural disasters but you, "
-            "you were just a disappointment. {}!".format(execstrings),
+            "Bagus, Saya suka jika anda meramaikan grup ini tapi banjir pesan mu "
+            "membuat saya kecewa. {}!".format(execstrings),
         )
 
         return (
@@ -108,7 +108,7 @@ def check_flood(update, context) -> str:
 
     except BadRequest:
         msg.reply_text(
-            "I can't restrict people here, give me permissions first! Until then, I'll disable anti-flood."
+            "Berikan saya izin agar saya bisa membatasi orang mengirim pesan beruntun di sini! "
         )
         sql.set_flood(chat.id, 0)
         return (
@@ -137,7 +137,7 @@ def set_flood(update, context) -> str:
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "This command is meant to use in group not in PM",
+                "Perintah ini dimaksudkan untuk digunakan dalam grup bukan di PM",
             )
             return ""
         chat_id = update.effective_chat.id
@@ -152,7 +152,7 @@ def set_flood(update, context) -> str:
                     "Antiflood has been disabled in {}.".format(chat_name)
                 )
             else:
-                text = ("Antiflood has been disabled.")
+                text = ("Antiflood telah dinonaktifkan.")
             send_message(message, text, parse_mode="markdown")
 
         elif val.isdigit():
@@ -164,7 +164,7 @@ def set_flood(update, context) -> str:
                         "Antiflood has been disabled in {}.".format(chat_name)
                     )
                 else:
-                    text = message.reply_text("Antiflood has been disabled.")
+                    text = message.reply_text("Antiflood telah dinonaktifkan.")
                 return (
                     "<b>{}:</b>"
                     "\n#SETFLOOD"
@@ -178,7 +178,7 @@ def set_flood(update, context) -> str:
             elif amount < 3:
                 send_message(
                     update.effective_message,
-                    "Antiflood must be either 0 (disabled) or number greater than 3!",
+                    "Jika ingin menggunakan Antiflood masukan angka harus lebih dari 3, Jika ingin dinonaktifkan masukan angka 0!",
                 )
                 return ""
 
@@ -186,13 +186,13 @@ def set_flood(update, context) -> str:
                 sql.set_flood(chat_id, amount)
                 if conn:
                     text = (
-                        "Anti-flood has been set to {} in chat: {}".format(
+                        "Anti-flood berhasil di atur ke {} di grup: {}".format(
                             amount, chat_name
                         )
                     )
                 else:
                     text = (
-                        "Successfully updated anti-flood limit to {}!".format(
+                        "Berhasil memperbarui batas Anti-flood menjadi {}!".format(
                             amount
                         )
                     )
@@ -212,12 +212,12 @@ def set_flood(update, context) -> str:
 
         else:
             message.reply_text(
-                "Invalid argument please use a number, 'off' or 'no'"
+                "Argumen tidak valid, harap gunakan angka, 'off' atau 'no'"
             )
     else:
         message.reply_text(
             (
-                "Use `/setflood number` to enable anti-flood.\nOr use `/setflood off` to disable antiflood!."
+                "Gunakan `/setflood angka` untuk menggunakan anti-flood.\nAtau gunakan `/setflood off` untuk menonaktifkan antiflood!."
             ),
             parse_mode="markdown",
         )
@@ -238,7 +238,7 @@ def flood(update, context):
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "This command is meant to use in group not in PM",
+                "Perintah ini dimaksudkan untuk digunakan dalam grup bukan di PM",
             )
             return
         chat_id = update.effective_chat.id
@@ -248,14 +248,14 @@ def flood(update, context):
     if limit == 0:
         if conn:
             text = (
-                "I'm not enforcing any flood control in {}!".format(chat_name)
+                "Saya tidak memaksakan pengendalian flood apa pun di {}!".format(chat_name)
             )
         else:
-            text = ("I'm not enforcing any flood control here!")
+            text = ("Saya tidak memaksakan pengendalian flood di sini")
     else:
         if conn:
             text = (
-                "I'm currently restricting members after {} consecutive messages in {}.".format(
+                "Saya saat ini membatasi anggota setelah {} pesan beruntun di {}.".format(
                     limit, chat_name
                 )
             )
