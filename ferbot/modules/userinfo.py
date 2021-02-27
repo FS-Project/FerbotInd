@@ -193,9 +193,9 @@ mempromosikan profil Anda.
 
 Semua bio ditampilkan pada perintah /info.
 
- × /setbio <text>: Saat membalas, akan menyimpan bio pengguna lain
+ × /setbio <teks>: Saat membalas, akan menyimpan bio pengguna lain
  × /bio: Akan mendapatkan bio Anda atau pengguna lain. Ini tidak dapat diatur sendiri.
- × /setme <text>: Akan mengatur bio Anda
+ × /setme <teks>: Akan mengatur bio Anda
  × /me: Akan mendapatkan bio Anda atau pengguna lain
 
 Contoh pengaturan bio untuk diri Anda sendiri:
@@ -204,7 +204,7 @@ Contoh pengaturan bio untuk diri Anda sendiri:
 Contoh penulisan biodata orang lain:
 Balas pesan pengguna: `/setbio Dia orang yang keren`.
 
-*Perhatian:* Jangan gunakan / setbio untuk melawan diri sendiri!
+*Perhatian:* Jangan gunakan /setbio untuk melawan diri sendiri!
 """
 
 __mod_name__ = "Bio/Tentang"
