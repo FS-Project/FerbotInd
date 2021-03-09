@@ -240,7 +240,7 @@ def new_member(update, context):
             elif new_mem.id == context.bot.id:
                 try:
                     update.effective_message.reply_text(
-                        "Hey 😍 {}, Saya {}! Terimakasih telah menambahkan saya di {}. Saya masih dalam perkembangan jadi mohon maaf jika terdapat bug".format(
+                        "Hey 😍 {}, Saya {}! Terimakasih telah menambahkan saya di {}. Saya masih dalam perkembangan jadi mohon maaf jika terdapat bug, Jika bersedia jadikan saya admin agar bisa sepenuhnya bekerja!".format(
                             user.first_name, context.bot.first_name, chat_name
                         ),
                         reply_to_message_id=reply,
