@@ -61,7 +61,7 @@ def import_data(update, context):
     else:
         if update.effective_message.chat.type == "private":
             update.effective_message.reply_text(
-                "This command can only be runned on group, not PM."
+                "Perintah ini hanya bisa di grup, bukan PM."
             )
             return ""
 
@@ -75,7 +75,7 @@ def import_data(update, context):
             )
         except BadRequest:
             msg.reply_text(
-                "Try downloading and uploading the file yourself again, This one seem broken!"
+                "Ulangi, file ini sepertinya rusak!"
             )
             return
 
@@ -87,7 +87,7 @@ def import_data(update, context):
         # only import one group
         if len(data) > 1 and str(chat.id) not in data:
             msg.reply_text(
-                "There are more than one group in this file and the chat.id is not same! How am i supposed to import it?"
+                "Terdapat lebih dari satu grup di file ini dan id grup tidak sama, bagaimana saya bisa mengimpornya?"
             )
             return
 
@@ -95,19 +95,19 @@ def import_data(update, context):
         try:
             if data.get(str(chat.id)) is None:
                 if conn:
-                    text = "Backup comes from another chat, I can't return another chat to chat *{}*".format(
+                    text = "Gagal! File ini berasal dari grup lain, saya tidak bisa melakukan itu ke grup *{}*".format(
                         chat_name
                     )
                 else:
-                    text = "Backup comes from another chat, I can't return another chat to this chat"
+                    text = "Gagal! File ini berasal dari grup lain, saya tidak bisa melakukan itu ke grup ini"
                 return msg.reply_text(text, parse_mode="markdown")
         except Exception:
-            return msg.reply_text("There is problem while importing the data!")
+            return msg.reply_text("Terdapat masalah saat mengimpor data!")
         # Check if backup is from self
         try:
             if str(context.bot.id) != str(data[str(chat.id)]["bot"]):
                 return msg.reply_text(
-                    "Backup from another bot that is not suggested might cause the problem, documents, photos, videos, audios, records might not work as it should be."
+                    "File dari bot lain tidak disarankan, kemungkinan dapat menyebabkan masalah, dokumen, foto, video, audio, catatan mungkin tidak berfungsi sebagaimana mestinya."
                 )
         except Exception:
             pass
@@ -122,11 +122,11 @@ def import_data(update, context):
                 mod.__import_data__(str(chat.id), data)
         except Exception:
             msg.reply_text(
-                "An error occurred while recovering your data. The process failed. If you experience a problem with this, please ask @starryboi"
+                "Terjadi kesalahan saat memulihkan data Anda. Prosesnya gagal. Jika Anda mengalami masalah dengan ini, silakan tanya @Fernans1"
             )
 
             LOGGER.exception(
-                "Imprt for the chat %s with the name %s failed.",
+                "Import for the chat %s with the name %s failed.",
                 str(chat.id),
                 str(chat.title),
             )
@@ -136,9 +136,9 @@ def import_data(update, context):
         # NOTE: consider default permissions stuff?
         if conn:
 
-            text = "Backup fully restored on *{}*.".format(chat_name)
+            text = "Pencadangan berhasil dilakukan di *{}*.".format(chat_name)
         else:
-            text = "Backup fully restored"
+            text = "Pencadangan berhasil dilakukan"
         msg.reply_text(text, parse_mode="markdown")
 
 
@@ -158,7 +158,7 @@ def export_data(update, context):
     else:
         if update.effective_message.chat.type == "private":
             update.effective_message.reply_text(
-                "This command can only be used on group, not PM"
+                "Perintah ini hanya dapat digunakan di grup, bukan PM"
             )
             return ""
         chat = update.effective_chat
@@ -171,10 +171,10 @@ def export_data(update, context):
     if checkchat.get("status"):
         if jam <= int(checkchat.get("value")):
             timeformatt = time.strftime(
-                "%H:%M:%S %d/%m/%Y", time.localtime(checkchat.get("value"))
+                "%J:%M:%D %h/%m/%Y", time.localtime(checkchat.get("value"))
             )
             update.effective_message.reply_text(
-                "You can only backup once a day!\nYou can backup again in about `{}`".format(
+                "Anda hanya dapat melakukan itu satu hari sekali!\nAnda dapat melakukan itu setelah `{}`".format(
                     timeformatt
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -361,14 +361,14 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    with open("FerbotEn-Bot{}.backup".format(chat_id), "w") as f:
+    with open("FerbotInd-Bot{}.backup".format(chat_id), "w") as f:
         f.write(str(baccinfo))
     context.bot.sendChatAction(current_chat_id, "upload_document")
-    tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
+    tgl = time.strftime("%J:%M:%D - %h/%m/%Y", time.localtime(time.time()))
     try:
         context.bot.sendMessage(
             MESSAGE_DUMP,
-            "*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`".format(
+            "*Berhasil mengimpor:*\nGrup: `{}`\nID Grup: `{}`\nDalam: `{}`".format(
                 chat.title, chat_id, tgl
             ),
             parse_mode=ParseMode.MARKDOWN,
@@ -377,15 +377,15 @@ def export_data(update, context):
         pass
     context.bot.sendDocument(
         current_chat_id,
-        document=open("FerbotEn-Bot{}.backup".format(chat_id), "rb"),
-        caption="*Successfully backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `FerbotEn-Backup` is specially made for notes.".format(
+        document=open("FerbotInd-Bot{}.backup".format(chat_id), "rb"),
+        caption="*Berhasil mencadangkan:*\nGrup: `{}`\nID Grup: `{}`\nDalam: `{}`\n\nCatatan: `FerbotInd-Backup` ini khusus dibuat untuk catatan.".format(
             chat.title, chat_id, tgl
         ),
         timeout=360,
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
     )
-    os.remove("FerbotEn-Bot{}.backup".format(chat_id))  # Cleaning file
+    os.remove("FerbotInd-Bot{}.backup".format(chat_id))  # Cleaning file
 
 
 # Temporary data
@@ -410,12 +410,12 @@ def get_chat(chat_id, chat_data):
 __mod_name__ = "Backups"
 
 __help__ = """
-*Only for chat administrator:*
+*Hanya untuk Admin grup:*
 
- × /import: Reply to the backup file for the butler / ferbot group to import as much as possible, making transfers very easy! \
- Note that files / photos cannot be imported due to telegram restrictions.
+ × /import: Balas ke file cadangan untuk diimpor! \
+ Perhatikan bahwa file / foto tidak dapat diimpor karena batasan telegram.
 
- × /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
+ × /export: Membuat file cadangan untuk di impor, yang akan di ekspor adalah: Peraturan, Catatan dll \
 
 """
 

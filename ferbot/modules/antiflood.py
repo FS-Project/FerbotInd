@@ -212,7 +212,7 @@ def set_flood(update, context) -> str:
 
         else:
             message.reply_text(
-                "Argumen tidak valid, harap gunakan angka, 'off' atau 'no'"
+                "Gagal! harap gunakan angka, 'off' atau 'no'"
             )
     else:
         message.reply_text(
@@ -248,10 +248,10 @@ def flood(update, context):
     if limit == 0:
         if conn:
             text = (
-                "Saya tidak memaksakan pengendalian flood apa pun di {}!".format(chat_name)
+                "Saya tidak memaksakan pengendalian pesan apa pun di {}!".format(chat_name)
             )
         else:
-            text = ("Saya tidak memaksakan pengendalian flood di sini")
+            text = ("Saya tidak memaksakan pengendalian pesan di sini")
     else:
         if conn:
             text = (
@@ -331,7 +331,7 @@ def set_flood_mode(update, context):
         else:
             send_message(
                 update.effective_message,
-                "I only understand ban/kick/mute/tban/tmute!",
+                "Gunakan ban/kick/mute/tban/tmute saja!",
             )
             return
         if conn:
@@ -397,26 +397,25 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-You know how sometimes, people join, send 100 messages, and ruin your chat? With antiflood, that happens no more!
+Anda ingin membatasi anggota yang sering mengirim pesan beruntun?.. Tenang semua itu akan saya batasi!
 
-Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
-will result in restricting that user.
+Saya akan membatasi anggota mengirim pesan jika dia telah melebihi batas yang telah ditentukan, jika melebihi anggota akan diberi hukuman yang telah ditentukan
 
- × /flood: Get the current flood control setting
+ × /flood: Lihat berapa batas pesan yang telah ditentukan
 
-*Admin only*:
+*Hanya Admin*:
 
- × /setflood <int/'no'/'off'>: enables or disables flood control
- × /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
+ × /setflood <angka/'no'/'off'>: Aktifkan / nonaktifkan pembatasan pesan.
+ × /setfloodmode <ban/kick/mute/tban/tmute> <nilai>: Tentukan apa yang akan terjadi setelah anggota melebihi batas mengirim pesan.
 
  Note:
- - Value must be filled for tban and tmute!
+ - Nilai harus diisi ketika anda mengatur hukumannya sebagai tban / tmute!
 
- It can be:
- 5m = 5 minutes
- 6h = 6 hours
- 3d = 3 days
- 1w = 1 week
+ Nilainya:
+ 5m = 5 menit
+ 6h = 6 jam
+ 3d = 3 hari
+ 1w = 1 minggu
  """
 
 __mod_name__ = "Antiflood"

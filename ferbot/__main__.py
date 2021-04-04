@@ -274,7 +274,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_photo(
-                "https://i.ibb.co/W24dbBW/logo-header-ferbotind.jpg",
+                "https://i.ibb.co/r0L8vng/fbi.png",
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -289,7 +289,7 @@ def error_handler(update, context):
     """Catat kesalahan dan kirim ke telegram untuk memberi tahu Developer."""
     # Log the error before we do anything else, so we can see it even if something breaks.
     LOGGER.error(
-        msg="Pengecualian saat menangani pembaruan:", exc_info=context.error
+        msg="Error! saat menangani pembaruan:", exc_info=context.error
     )
     if isinstance(context.error, SQLAlchemyError) or isinstance(
         context.error, DBAPIError
@@ -606,7 +606,7 @@ def settings_button(update, context):
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
                 "Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
-                "yang Anda minati.".format(chat.title),
+                "yang Anda inginkan.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -620,7 +620,7 @@ def settings_button(update, context):
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
                 "Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
-                "yang Anda minati.".format(chat.title),
+                "yang Anda inginkan.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
                         next_page + 1, CHAT_SETTINGS, "stngs", chat=chat_id
@@ -633,7 +633,7 @@ def settings_button(update, context):
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
                 text="Halo! kamu Ada beberapa setelan untuk {} - lanjutkan dan pilih apa "
-                "yang Anda minati.".format(escape_markdown(chat.title)),
+                "yang Anda inginkan.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)

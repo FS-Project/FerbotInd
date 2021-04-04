@@ -1,23 +1,39 @@
 ### FerbotInd
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-<img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.1-blue?style=for-the-badge&logo=appveyor"/>
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/FS-Project/)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8bfae649db3742a883e0ac1008755db3)](https://www.codacy.com/gh/FS-Project/FerbotIndn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=FS-Project/FerBotEn&utm_campaign=Badge_Grade)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/FS-Project/FerbotInd/pulls)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/FS-Project/FerbotInd/graphs/commit-activity)
-![logo](https://i.ibb.co/W24dbBW/logo-header-ferbotind.jpg)
+> **FerbotInd merupakan sebuah Bot Telegram yang memiliki kurang lebih 30 <a href="https://github.com/FS-Project/FerbotInd/tree/master/ferbot/modules">modul</a> dibuat menggunakan bahasa <a href="https://python.org">Python</a> dan menggunakan <a href="https://teletohn.dev">Telethon</a>.**
 
-### [read in english](https://github.com/FS-Project/FerbotInd/blob/master/README.md)
+### Daftar Isi
 
-Bot Python telegram modular yang berjalan di python3 dengan database sqlalchemy.
+- <a href="https://github.com/FS-Project/FerbotInd#Dokumentasi-">Dokumentasi Lengkap</a>
+- <a href="https://github.com/FS-Project/FerbotInd#Info-Source-Code">Info Source Code</a>
+- <a href="https://github.com/FS-Project/FerbotInd#Kredit-">Kredit</a>
+- <a href="https://github.com/FS-Project/FerbotInd#Lisensi-">Lisensi</a>
+- <a href="https://github.com/FS-Project/FerbotInd#Copyright-">Copyright</a>
 
-Awalnya bot manajemen grup sederhana dengan beberapa fitur admin, dan telah berkembang, menjadi sangat modular dan
-mudah digunakan. Perhatikan bahwa proyek ini menggunakan bot Telegram terkenal pada masanya @BanhammerMarie_bot dari Paul Larson sebagai basisnya.
+<a href="https://github.com/FS-Project/FerbotInd">
+<img src="https://i.ibb.co/r0L8vng/fbi.png" alt="fbi"/>
+</a>
 
-Dapat ditemukan di telegram sebagai [FerbotInd] (https://t.me/FerBotInd_bot).
-Laporkan bug ke [👤] (https://t.me/Fernans1)
+![GitHub](https://img.shields.io/github/license/FS-Project/FerbotInd?label=Lisensi&style=for-the-badge)
+![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=appveyor)
+![GitHub repo size](https://img.shields.io/github/repo-size/FS-Project/FerbotInd?label=Ukuran%20Repo&style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/FS-Project/FerbotInd?label=Komit%20&style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/fs-project/FerbotInd?label=Komit%20Terakhir&logo=Last%20commit&style=for-the-badge)
+[![Codacy grade](https://img.shields.io/codacy/grade/8bfae649db3742a883e0ac1008755db3?color=blue&label=Kualitas%20Kode&style=for-the-badge)](https://app.codacy.com/gh/FS-Project/FerbotInd/dashboard?branch=master)
+[![Love](https://img.shields.io/badge/BUILT%20WITH-%E2%9D%A4-green?style=for-the-badge&logo=appveyor)](https://gihub.com/FS-Project)
+
+### [Read in English](https://github.com/FS-Project/FerbotInd/blob/master/README.md)
+
+### Dokumentasi
+
+Anda ingin mengetahui apa saja Cara menggunakan, fungsi perintah, cara deploy, dan hal lainya tentang FerbotInd? Silahkan lihat di [**disini**](https://FS-Project.github.io#dokumentasi)
+
+Bot telegram modular yang berjalan di python3.9 dengan database sqlalchemy.
+
+Awalnya bot manajemen grup sederhana dengan beberapa fitur admin, dan telah berkembang, menjadi sangat modular dan mudah digunakan. Perhatikan bahwa proyek ini menggunakan bot Telegram terkenal pada masanya @BanhammerMarie_bot dari Paul Larson sebagai basisnya.
+
+Anda ingin memakai FerbotInd? Cari saja username nya @FerbotInd_bot atau klik [**FerbotInd**](https://t.me/FerbotInd_bot).
+Laporkan bug [**disini**](http://FS-Project.github.io/#kontak)
 
 ## Kredit
 
@@ -39,134 +55,18 @@ Corsicanu dan Nunopenim untuk modul android
 
 UserIndoBot untuk kode sumber
 
-Kredit lain yang hilang dapat dilihat di komit!
+Kredit lain dapat dilihat di komit!
 
-## Memulai bot
+### Info Source Code
 
-Setelah Anda mengatur database Anda dan konfigurasi Anda (lihat di bawah) selesai, jalankan saja:
+Ini Adalah Repo Dengan Source Code Copy Dari [**UserIndoBot**](https://github.com/userbotindo/UserIndoBot/) Dan Sudah Mendapatkan Izin Copy.
+Bot Ini Sudah Di Translate Kebahasa Indonesia Untuk Mempermudah Para Pengguna Yang Dari Indonesia.(belum sempurna, dan akan dikembangkan lagi)
+Terima kasih banyak untuk [**Mr.Miss**](https://t.me/KeselekPermen) sudah memberikan izin.
 
-`python3 -m ferbot`
+### Lisensi
 
-## Menyiapkan bot Baca ini sebelum mencoba menggunakan
+- FerbotInd berlisensi [**GNU-GPL-v3.0**](https://www.gnu.org/licenses/gpl-3.0)
 
-Harap pastikan untuk menggunakan python3.6 di atas, karena saya tidak dapat menjamin semuanya akan berfungsi seperti yang diharapkan pada versi Python yang lebih lama!
-Ini karena penguraian penurunan harga dilakukan dengan iterasi melalui dict, yang diurutkan secara default di 3.6.
+### Copyright
 
-### Konfigurasi
-
-Ada dua cara yang mungkin untuk mengonfigurasi bot Anda: file config.py, atau variabel ENV.
-
-Versi yang disukai adalah menggunakan file `config.py`, karena ini lebih memudahkan untuk melihat semua pengaturan Anda secara bersamaan.
-File ini harus ditempatkan di folder `UserindoBot` Anda, di samping file` __main __. Py`.
-Di sinilah token bot Anda akan dimuat, serta URI database Anda (jika Anda menggunakan database), dan sebagian besar
-pengaturan Anda yang lain.
-
-Direkomendasikan untuk mengimpor sample_config dan memperluas kelas Config, karena ini akan memastikan konfigurasi Anda berisi semuanya
-default diatur di sample_config, sehingga membuatnya lebih mudah untuk ditingkatkan.
-
-Contoh file `config.env` bisa jadi:
-
-`` python
-    API_KEY = "" # Token bot Anda dari BotFather
-    OWNER_ID = "1234567" # Jika Anda tidak tahu, jalankan bot dan lakukan / id dalam obrolan pribadi Anda dengannya
-    OWNER_USERNAME = "ferbot" # nama pengguna telegram Anda
-    SQLALCHEMY_DATABASE_URI = "sqldbtype: // username: pw @ hostname: port / db_name"
-    MONGO_DB_URI = "mongodb + srv: // nama pengguna: pwd@host.port.mongodb.net/db_name"
-    MESSAGE_DUMP = "-100987654" # diperlukan untuk memastikan pesan 'simpan dari' tetap ada
-    LOAD = "" # daftar modul yang dimuat (pisahkan dengan spasi)
-    NO_LOAD = "afk android" # daftar modul yang dibongkar (pisahkan dengan spasi)
-    STRICT_GBAN = Benar
-``
-
-### Dependensi Python
-
-Instal dependensi Python yang diperlukan dengan berpindah ke direktori proyek dan menjalankan:
-
-`pip3 install -r requirement.txt`.
-
-Ini akan menginstal semua paket python yang diperlukan.
-
-### Database
-
-#### MongoDB
-
-[MongoDB] (https://cloud.mongodb.com/) di sini digunakan untuk menyimpan pengguna, obrolan, status afk, daftar hitam, larangan global, data.
-
-#### SQL
-
-Jika Anda ingin menggunakan modul yang bergantung pada database (misalnya: kunci, catatan, filter, selamat datang),
-Anda harus memiliki database yang terpasang di sistem Anda. Saya menggunakan Postgres, jadi saya sarankan menggunakannya untuk kompatibilitas optimal.
-
-Dalam kasus Postgres, inilah cara Anda mengatur database pada sistem Debian / Ubuntu. Distribusi lain mungkin berbeda.
-
-- instal PostgreSQL:
-
-`sudo apt-get update && sudo apt-get install postgresql`
-
-- ubah ke pengguna Postgres:
-
-`sudo su - postgres`
-
-- buat pengguna database baru (ubah YOUR_USER dengan benar):
-
-`createuser -P -s -e YOUR_USER`
-
-Ini akan diikuti oleh Anda perlu memasukkan kata sandi Anda.
-
-- buat tabel database baru:
-
-`Createdb -O YOUR_USER YOUR_DB_NAME`
-
-Ubah YOUR_USER dan YOUR_DB_NAME dengan benar.
-
-- akhirnya:
-
-`psql YOUR_DB_NAME -h YOUR_HOST YOUR_USER`
-
-Ini akan memungkinkan Anda untuk terhubung ke database Anda melalui terminal Anda.
-Secara default, YOUR_HOST harus 0.0.0.0:5432.
-
-Anda sekarang harus dapat membangun URI database Anda. Ini akan menjadi:
-
-`sqldbtype: // username: pw @ hostname: port / db_name`
-
-Ganti SqlDbType dengan DB mana pun yang Anda gunakan (mis. Postgres, MySQL, SQLite, dll)
-ulangi untuk nama pengguna, kata sandi, nama host (localhost?), port (5432?), dan nama DB Anda.
-
-## Modul
-
-### Menyetel urutan pemuatan
-
-Urutan pemuatan modul dapat diubah melalui pengaturan konfigurasi `LOAD` dan` NO_LOAD`.
-Keduanya harus mewakili daftar.
-
-Jika `LOAD` adalah daftar kosong, semua modul dalam` modules / `akan dipilih untuk dimuat secara default.
-
-Jika `NO_LOAD` tidak ada atau merupakan daftar kosong, semua modul yang dipilih untuk dimuat akan dimuat.
-
-Jika modul ada di `LOAD` dan` NO_LOAD`, modul tidak akan dimuat - `NO_LOAD` diprioritaskan.
-
-### Membuat modul Anda sendiri
-
-Membuat modul telah disederhanakan semaksimal mungkin - tetapi jangan ragu untuk menyarankan penyederhanaan lebih lanjut.
-
-Yang diperlukan hanyalah file .py Anda ada di folder modul.
-
-Untuk menambahkan perintah, pastikan untuk mengimpor petugas operator melalui
-
-`from dispatcher import ferbot`.
-
-Anda kemudian dapat menambahkan perintah menggunakan biasa
-
-`dispatcher.add_handler ()`.
-
-Menetapkan variabel `__help__` ke string yang menjelaskan ketersediaan modul ini
-perintah akan memungkinkan bot memuatnya dan menambahkan dokumentasinya
-modul Anda ke perintah `/help`. Menyetel variabel `__mod_name__` juga akan memungkinkan Anda menggunakan variabel yang lebih bagus,
-nama yang mudah digunakan untuk modul.
-
-Fungsi `__migrate __ ()` digunakan untuk memigrasi obrolan - saat obrolan ditingkatkan ke supergrup, ID berubah, jadi
-perlu untuk memigrasikannya di DB.
-
-Fungsi `__stats __ ()` adalah untuk mengambil statistik modul, misalnya jumlah pengguna, jumlah obrolan. Ini diakses
-melalui perintah `/stats`, yang hanya tersedia untuk pemilik bot.
+- Copyright (C) 2021 by [**FSProject**](https://github.com/FS-Project) ❤️
