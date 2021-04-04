@@ -100,7 +100,7 @@ buttons = [
 buttons += [[InlineKeyboardButton(text="🔗 Open Source",
                                   url=f"https://github.com/FS-Project/FerbotInd"),
              InlineKeyboardButton(text="☑️ Laporkan Bug",
-                                  url="https://t.me/Fernans1"),
+                                  url="https://FS-Project.github.io/#kontak"),
              ]]
 
 
