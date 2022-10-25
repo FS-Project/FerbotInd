@@ -57,6 +57,7 @@ from ferbot import (
     WHITELIST_CHATS,
 )
 
+
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from ferbot.modules import ALL_MODULES
