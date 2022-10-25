@@ -1,6 +1,6 @@
 # Ferbot, this is a bot for management your group
 # This source code copy from UserIndoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
-# Copyright (C) 2022 FS Project <https://github.com/fs-project/FerbotInd>
+# Copyright (C) 2022 FS Project <https://github.com/fs-project/FerbotInd.git>
 # 
 # UserindoBot
 # Copyright (C) 2020  UserindoBot Team, <https://github.com/userbotindo/UserIndoBot.git>
