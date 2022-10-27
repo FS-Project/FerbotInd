@@ -551,12 +551,12 @@ def __chat_settings__(chat_id, user_id):
 __help__ = """
 Semua hal tentang grup seperti daftar admin, menyematkan atau menggeluarkan anggota dapat dilakukan dengan mudah menggunakan bot.
 
- × /adminlist: Melihat daftar admin di grup.
+ × /adminlist : Untuk melihat daftar admin di grup.
 
-*Hanya Admin:*
+*Perintah Admin :*
  × /pin : Untuk menyematkan pesan
          - tambahkan `loud` untuk menyematkan pesan secara diam-diam.
-         - `notify` atau `violent` untuk memberi pemberitahuan kepada pengguna.
+         - tambahkan `notify` atau `violent` untuk memberi pemberitahuan kepada pengguna.
  × /unpin : Untuk melepas pesan yang disematkan saat ini.
  × /invitelink : Untuk mendapatkan link grup.
  × /promote : Untuk menjadikan pengguna sebagai admin.
@@ -568,10 +568,10 @@ Semua hal tentang grup seperti daftar admin, menyematkan atau menggeluarkan angg
  × /setsticker : Untuk membuat stiker grup.
  × /setdescription : <teks> Untuk membuat deskripsi grup.
 
-*Catatan*: Untuk membuat stiker grup, grup harus memiliki minimal 100 anggota.
+*Catatan* : 
+- Untuk membuat stiker grup, grup harus memiliki minimal 100 anggota.
 
 Contoh :
-
 - Untuk menjadikan seseorang menjadi admin :
   `/promote @username` : ini akan menjadikan pengguna menjadi admin.
 """
