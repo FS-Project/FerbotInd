@@ -172,7 +172,7 @@ def demote(update, context):
 
     except BadRequest:
         message.reply_text(
-            "Gagal! Sepertinya Saya bukan admin disini!"
+            "Gagal! Sepertinya Dia bukan admin disini!"
         )
         return ""
 
@@ -549,7 +549,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-Semua hal tentang grup seperti daftar admin, menyematkan atau menggeluarkan anggota dapat dilakukan dengan mudah menggunakan bot.
+Modul *Admin* berfungsi untuk mengelola grup, dapat membantu Anda seperti, melihat daftar admin, menyematkan atau mengeluarkan anggota dapat dilakukan dengan mudah menggunakan bot.
 
  × /adminlist : Untuk melihat daftar admin di grup.
 
