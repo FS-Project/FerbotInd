@@ -93,7 +93,7 @@ def no_longer_afk(update, context):
                 "{} Akhirnya kembali!",
                 "Selamat datang kembali! {}",
             ]
-           chosen_option = random.choice(options)
+            chosen_option = random.choice(options)
             unafk = update.effective_message.reply_text(
                 chosen_option.format(firstname)
             )
