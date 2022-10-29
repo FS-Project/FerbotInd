@@ -58,12 +58,16 @@ def check_flood(update, context) -> str:
         getmode, getvalue = sql.get_flood_setting(chat.id)
         if getmode == 1:
             chat.kick_member(user.id)
-            execstrings = "{} Telah dikeluarkan!"
+            execstrings = "{} Telah dikeluarkan!".format(
+                mention_html(user.id, user.first_name),
+            )
             tag = "BANNED"
         elif getmode == 2:
             chat.kick_member(user.id)
             chat.unban_member(user.id)
-            execstrings = "{} Telah dikeluarkan!"
+            execstrings = "{} Telah dikeluarkan!".format(
+                mention_html(user.id, user.first_name),
+            )
             tag = "KICKED"
         elif getmode == 3:
             context.bot.restrict_chat_member(
@@ -71,12 +75,14 @@ def check_flood(update, context) -> str:
                 user.id,
                 permissions=ChatPermissions(can_send_messages=False),
             )
-            execstrings = "{} Telah dibisukan!"
+            execstrings = "{} Telah dibisukan!".format(
+                mention_html(user.id, user.first_name),
+            )
             tag = "MUTED"
         elif getmode == 4:
             bantime = extract_time(msg, getvalue)
             chat.kick_member(user.id, until_date=bantime)
-            execstrings = "{} Telah dikeluarkan!".format(getvalue)
+            execstrings = "Telah diban selama {}".format(getvalue)
             tag = "TBAN"
         elif getmode == 5:
             mutetime = extract_time(msg, getvalue)
@@ -303,24 +309,24 @@ def set_flood_mode(update, context):
         elif args[0].lower() == "tban":
             if len(args) == 1:
                 teks = ("Anda harus menentukan waktu untuk mengatur antiflood ke tban!\nContoh, `/setfloodmode tban 30m`.\n"
-                "Contoh waktu :\n5m = 5 Menit,\n 3h = 3 Jam,\n 6d = 6 Hari,\n 5w = 5 Minggu."
+                "Contoh waktu :\n5m = 5 Menit,\n3h = 3 Jam,\n6d = 6 Hari,\n5w = 5 Minggu."
                 )
                 send_message(
                     update.effective_message, teks, parse_mode="markdown"
                 )
                 return
-            settypeflood = "tban diatur ke {}".format(args[1])
+            settypeflood = "tban dengan waktu {}".format(args[1])
             sql.set_flood_strength(chat_id, 4, str(args[1]))
         elif args[0].lower() == "tmute":
             if len(args) == 1:
                 teks = ("Anda harus menentukan waktu untuk mengatur antiflood ke tban!\nContoh, `/setfloodmode tmute 30m`.\n"
-                "Contoh waktu :\n5m = 5 Menit,\n 3h = 3 Jam,\n 6d = 6 Hari,\n 5w = 5 Minggu."
+                "Contoh waktu :\n5m = 5 Menit,\n3h = 3 Jam,\n6d = 6 Hari,\n5w = 5 Minggu."
                 )
                 send_message(
                     update.effective_message, teks, parse_mode="markdown"
                 )
                 return
-            settypeflood = "tmute diatur ke {}".format(args[1])
+            settypeflood = "tmute dengan waktu {}".format(args[1])
             sql.set_flood_strength(chat_id, 5, str(args[1]))
         else:
             send_message(
@@ -391,7 +397,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-Antiflood berfunsi untuk membatasi anggota grup yang melakukan pesan beruntun atau spam di grup.
+Antiflood berfungsi untuk membatasi anggota grup yang melakukan pesan beruntun atau spam di grup.
 
 Jika anggota telah melebihi batas yang diatur, anggota akan diberi hukuman sesuai yang diatur oleh admin grup.
 
