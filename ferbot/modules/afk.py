@@ -19,6 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """Afk module: Tell anyone if you away from keyboard."""
 import random
+from time import sleep
 
 from telegram import MessageEntity
 from telegram.error import BadRequest
@@ -64,6 +65,7 @@ def afk(update, context):
     afksend = msg.reply_text(
         afkstr.format(update.effective_user.first_name, notice)
     )
+    sleep(300)
     try:
         afksend.delete()
     except BadRequest:
@@ -95,6 +97,7 @@ def no_longer_afk(update, context):
             unafk = update.effective_message.reply_text(
                 chosen_option.format(firstname)
             )
+            sleep(300)
             unafk.delete()
         except BaseException:
             return
@@ -174,6 +177,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             replafk = update.effective_message.reply_text(
                 res, parse_mode="html"
             )
+        sleep(300)
         try:
             replafk.delete()
         except BadRequest:
