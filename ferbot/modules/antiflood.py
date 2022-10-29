@@ -404,12 +404,11 @@ Jika anggota telah melebihi batas yang diatur, anggota akan diberi hukuman sesua
  × /flood: Untuk melihat berapa batas pesan yang telah diatur.
 
 *Perintah Admin*:
-
- × /setflood <angka/'no'/'off'> : Untuk aktifkan / nonaktifkan pembatasan pesan.
+ × /setflood <angka/no/off> : Untuk aktifkan / nonaktifkan pembatasan pesan.
  × /setfloodmode <ban/kick/mute/tban/tmute> <waktu> : Untuk mengatur hukuman dan waktunya.
 
- Catatan :
- - Waktu harus diisi ketika Anda mengatur hukuman ke tban / tmute!
+Catatan :
+- Waktu harus diisi ketika Anda mengatur hukuman ke tban / tmute!
 
 Contoh waktu :
  5m = 5 Menit
